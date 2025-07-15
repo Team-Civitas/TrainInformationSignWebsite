@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div class="App">
       <NavBarMeny theme={theme} setTheme={setTheme} />
       <AcquireTheme theme={theme} />
     </div>
