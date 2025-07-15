@@ -1,4 +1,3 @@
-import React from "react";
 import './2.css';
 
 function Theme2() {

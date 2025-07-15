@@ -1,3 +1,4 @@
+import './styles/NavBarMeny.css'
 import { themeList } from "../themes/themes";
 
 function NavBarMeny({ theme, setTheme }) {
@@ -6,23 +7,21 @@ function NavBarMeny({ theme, setTheme }) {
   };
 
   return (
-    <div className="ThemeSelector">
-      <div style={{ minWidth: '120px' }}>
-        <label htmlFor="ThemeSelector" style={{ display: 'flex', marginBottom: '0.5rem' }}>
-          Theme
-        </label>
-        <select
-          id="ThemeSelector"
-          value={theme}
-          onChange={changeTheme}
-          style={{ padding: '0.5rem' }}
-        >
-          {themeList.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+    <div className='NavBarMenyWrapper'>
+      <div className="NavBarMeny">
+        <div className="ThemeSelector">
+          <label className="ThemeSelectorLabel">Theme: </label>
+          <select 
+            value={theme}
+            onChange={changeTheme}
+          >
+            {themeList.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );

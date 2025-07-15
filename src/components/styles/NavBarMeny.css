@@ -1,0 +1,19 @@
+.NavBarMenyWrapper {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavBarMeny {
+    background-color: gray;
+    display: inline-block;
+    padding: 16px;
+    border-radius: 0px 0px 16px 16px;
+}
+
+
+.ThemeSelector select {
+    padding: 0.1rem;
+}

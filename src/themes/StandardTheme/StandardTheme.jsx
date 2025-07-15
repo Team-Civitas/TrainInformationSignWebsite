@@ -1,9 +1,8 @@
-import React from "react";
 import './StandardTheme.css';
 
 function StandardTheme() {
     return (
-        <div class="StandardTheme">
+        <div className="StandardTheme">
             <h1>Ankommande tåg - Train arrivals</h1>
         </div>
     )

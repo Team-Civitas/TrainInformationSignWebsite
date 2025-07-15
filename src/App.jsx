@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchStations } from './components/APIFunctions.jsx'; 
 import NavBarMeny from './components/NavbarMeny.jsx';
 import { themes } from './themes/themes.js';
@@ -24,8 +24,11 @@ function App() {
   }, []);
 
   return (
-    <div class="App">
+    <div className="App">
+      
       <NavBarMeny theme={theme} setTheme={setTheme} />
+
+      
       <AcquireTheme theme={theme} />
     </div>
   );
