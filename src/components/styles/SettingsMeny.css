@@ -4,15 +4,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 48px;
 }
 
 .NavBarMeny {
+    display: none;
     background-color: gray;
-    display: inline-block;
     padding: 16px;
     border-radius: 0px 0px 16px 16px;
 }
 
+.NavBarMenyWrapper:hover .NavBarMeny {
+    display: inline-block;
+}
 
 .ThemeSelector select {
     padding: 0.1rem;

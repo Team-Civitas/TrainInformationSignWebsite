@@ -1,4 +1,4 @@
-import './styles/NavBarMeny.css'
+import './styles/SettingsMeny.css'
 import { themeList } from "../themes/themes";
 
 function NavBarMeny({ theme, setTheme }) {
@@ -25,6 +25,7 @@ function NavBarMeny({ theme, setTheme }) {
       </div>
     </div>
   );
+  
 }
 
 export default NavBarMeny;

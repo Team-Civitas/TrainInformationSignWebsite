@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchStations } from './components/APIFunctions.jsx'; 
-import NavBarMeny from './components/NavbarMeny.jsx';
+import NavBarMeny from './components/SettingsMeny.jsx';
 import { themes } from './themes/themes.js';
 
 function AcquireTheme({ theme }) {
