@@ -1,5 +1,3 @@
-import React from 'react';
-
 function NavBarMeny({ theme, setTheme }) {
 
     const changeTheme = (event) => {
@@ -7,7 +5,7 @@ function NavBarMeny({ theme, setTheme }) {
     };
 
     return (
-        <div class="ThemeSelector">
+        <div className="ThemeSelector">
             <div style={{ minWidth: '120px' }}>
                 <label htmlFor="ThemeSelector" style={{ display: 'flex', marginBottom: '0.5rem' }}>
                     Theme
