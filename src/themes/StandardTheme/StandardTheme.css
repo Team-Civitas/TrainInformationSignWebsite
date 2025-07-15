@@ -1,3 +1,55 @@
-.StandardTheme {
-    background-color: aqua;
+:root {
+    --primary-fg: #fff;
+    --secondary-fg: #ced64d;
+    --primary-bg: #222;
+    --secondary-bg: #3a3a3a;
+}
+
+body {
+    background-color: var(--primary-bg);
+    font-size: 2em;
+}
+
+.grid > div, p {
+    margin: 0 0.5vw;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 35% 10% 8% 22% 15%;
+    border-bottom: 1px solid #444;
+    color: var(--secondary-fg);
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-fg);
+    background-color: var(--secondary-bg);
+}
+
+.mainHeaderText {
+    margin: 0 0.5vw;
+}
+
+.currentTime {
+    margin: 0 0.5vw;
+    color: var(--secondary-fg);
+    
+}
+
+.nyTid {
+    color: #80dfff;
+}
+
+.tågnr {
+    text-align: right;
+    margin: 0 0.5vw;
+}
+
+.titles {
+    color: #fff;
+    background-color: var(--secondary-bg);
+    padding: 0.5vw;
 }
