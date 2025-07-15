@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import StandardTheme from './themes/StandardTheme.jsx';
-import Theme2 from './themes/2.jsx';
 import { fetchStations } from './components/APIFunctions.jsx'; 
 import NavBarMeny from './components/NavbarMeny.jsx';
+import { themes } from './themes/themes.js';
 
 function AcquireTheme({ theme }) {
-  switch(theme) {
-    case "2":
-      return <Theme2 />;
-    default:
-      return <StandardTheme />;
-  }
+  const ThemeComponent = themes[theme] || themes['StandardTheme'];
+  return <ThemeComponent />;
 }
 
 function App() {
