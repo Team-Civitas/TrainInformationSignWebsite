@@ -28,17 +28,15 @@ function StandardTheme ({ trainArray }) {
     }
 
     return (
-
-        // JSX för StandardTheme
         <div className="StandardTheme">
             <div className="header">
                 <div className="mainHeader">
-                    <p className="mainHeaderText">Ankommande tåg - Train arrivals</p>
+                    <p className="mainHeaderText">Avgående tåg - Train departures</p>
                     <p className="currentTime">{klocka}</p>
                 </div>
                 <div className="grid titles">
                     <p className='tid'>Tid</p>
-                    <p className='från'>Från</p>
+                    <p className='destination'>Destination</p>
                     <p className="nyTid" id='whiteColor'>Ny tid</p>
                     <p className='spår'>Spår</p>
                     <p className='anmärkning'>Anmärkning</p>

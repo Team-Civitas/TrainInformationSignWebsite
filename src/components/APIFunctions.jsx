@@ -38,6 +38,12 @@ function stationSignatureToName(stationSignature) {
   return station ? station.AdvertisedShortLocationName : null;
 }
 
+function nameToStationSignature(name) {
+  const station = stationsArray.find(s => s.AdvertisedLocationName === name);
+  return station ? station.LocationSignature : null;
+}
+
+
 async function getTrainDataAtStation(stationSignature) {
   const requestBody = `<REQUEST>
   <LOGIN authenticationkey="${APIKey}" />
@@ -111,4 +117,4 @@ function operationalTrainNumberToAnnouncment(stationSignature) {
   return station ? station.AdvertisedLocationName : null;
 }
 
-export { fetchStations, getTrainDataAtStation, stationSignatureToName, fetchTrainAnnouncements, operationalTrainNumberToAnnouncment};
+export { fetchStations, getTrainDataAtStation, stationSignatureToName, fetchTrainAnnouncements, operationalTrainNumberToAnnouncment, nameToStationSignature};
