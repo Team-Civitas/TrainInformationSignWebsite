@@ -2,7 +2,7 @@
     --primary-fg: #fff;
     --secondary-fg: #ced64d;
     --primary-bg: #222;
-    --secondary-bg: #3a3a3a;
+    --secondary-bg: #303030;
 }
 
 body {
@@ -11,6 +11,14 @@ body {
     font-size: 2em;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.05em;
+}
+
+.StandardTheme > .grid:nth-child(odd) {
+  background-color: var(--secondary-bg);
+}
+
+.StandardTheme > .grid:nth-child(even) {
+  background-color: var(--primary-bg);
 }
 
 p {
