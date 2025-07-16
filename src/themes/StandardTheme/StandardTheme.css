@@ -70,12 +70,13 @@ body {
 
 .mainHeaderText {
     margin: 0 0.5vw;
-    font-size: 1.5em;
+    font-size: 1.25em;
     letter-spacing: 2px;
 }
 
 .currentTime {
-    margin: 0 0.5vw;
+    margin: 0 4.5vw;
+    font-size: 1.25em;
     color: var(--secondary-fg);
     
 }
