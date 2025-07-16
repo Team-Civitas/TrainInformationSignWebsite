@@ -10,7 +10,7 @@ function AcquireTheme({ theme, trainArray }) {
 
 function App() {
   const [theme, setTheme] = useState('StandardTheme');
-  const [selectedStation, setSelectedStation] = useState('Cst');
+  const [selectedStation, setSelectedStation] = useState({ value: 'Cst', label: 'Stockholm C' });
   const [trainArray, setTrainArray] = useState([]);
   const [stationList, setStationList] = useState([]);
 
@@ -21,7 +21,7 @@ function App() {
         const stationsData = await fetchStations();
         setStationList(stationsData);
 
-        const trainsData = await getTrainDataAtStation(selectedStation);
+        const trainsData = await getTrainDataAtStation(selectedStation.value);
         setTrainArray(trainsData);
         
       } catch (err) {
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <SettingsMeny theme={theme} setTheme={setTheme} selectedStation={selectedStation} setSelectedStation={setSelectedStation} />
+      <SettingsMeny theme={theme} setTheme={setTheme} selectedStation={selectedStation} setSelectedStation={setSelectedStation} stationList={stationList} />
       <AcquireTheme theme={theme} trainArray={trainArray} />
     </div>
   );
