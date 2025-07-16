@@ -87,7 +87,6 @@ body {
 .titles {
     color: #fff;
     background-color: var(--secondary-bg);
-    padding: 0.5vw;
     
     font-size: 0.75em;
 }
