@@ -28,7 +28,12 @@ function App() {
       }
     }
 
-    reloadStation();
+    reloadStation()
+    const interval = setInterval(() => {
+      reloadStation()
+    }, 600000);
+
+    return () => clearInterval(interval)
   }, [selectedStation]);
 
   return (
