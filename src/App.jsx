@@ -4,13 +4,13 @@ import SettingsMeny from './components/SettingsMeny.jsx';
 import { themes } from './themes/themes.js';
 
 function AcquireTheme({ theme, trainArray }) {
-  const ThemeComponent = themes[theme] || themes['StandardTheme'];
+  const ThemeComponent = themes[theme] || themes['Standard'];
   return <ThemeComponent trainArray={trainArray} />;
 }
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'StandardTheme';
+    return localStorage.getItem('theme') || 'Standard';
   });
 
   const [selectedStation, setSelectedStation] = useState(() => {
