@@ -1,8 +1,8 @@
-import './2.css';
+import './sl.css';
 
-function Theme2() {
+function ThemeSL() {
     return (
-        <div className="Theme2">
+        <div className="ThemeSL">
             <div>
                 <h1>Ankommande tåg - Train arrivals</h1>
             </div>
@@ -10,4 +10,4 @@ function Theme2() {
     )
 }
 
-export default Theme2
+export default ThemeSL
