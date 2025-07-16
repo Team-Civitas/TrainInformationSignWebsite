@@ -49,7 +49,7 @@ function StandardTheme ({ trainArray }) {
                     .map(stationSignatureToName)
                     .join(' ');
                 return (
-                    <div className="grid">
+                    <div className="grid" key={train.AdvertisedTrainIdent}>
                         <p className='tid'>{formatTime(train.AdvertisedTimeAtLocation)}</p>
                         <p className='från'>{toLocationString}</p>
                         <p className="nyTid">
