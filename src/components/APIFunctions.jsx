@@ -24,6 +24,7 @@ async function fetchStations() {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
+
 	const stationArray = [];
 	for (const station of data.RESPONSE.RESULT[0].TrainStation) {
 		stationArray.push(station);
