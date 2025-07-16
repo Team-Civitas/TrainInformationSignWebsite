@@ -2,24 +2,80 @@
     --primary-fg: #fff;
     --secondary-fg: #ced64d;
     --primary-bg: #222;
-    --secondary-bg: #3a3a3a;
+    --secondary-bg: #303030;
 }
 
 body {
-    background-color: var(--primary-bg);
+    background-color: var(--secondary-bg);
+
     font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.05em;
 }
 
-.grid > div, p {
+.StandardTheme > .grid:nth-child(odd) {
+  background-color: var(--secondary-bg);
+}
+
+.StandardTheme > .grid:nth-child(even) {
+  background-color: var(--primary-bg);
+}
+
+p {
+    display: inline-block;
+    transform: scaleX(1);
+    transform-origin: left bottom;
+}
+
+.grid>div,
+p {
     margin: 0 0.5vw;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 35% 10% 8% 22% 15%;
-    border-bottom: 1px solid #444;
+    grid-template-columns: 6.5% 58.5% 6% 6% 14% 9%;
     color: var(--secondary-fg);
+    font-size: 1.25em;
 }
+
+#whiteColor {
+    color: #fff;
+}
+
+/*grid-indelning*/
+
+.grid>.tid {
+    grid-column: 1;
+    text-align: left;
+}
+
+.grid>.från {
+    grid-column: 2;
+    text-align: left;
+}
+
+.grid>.nyTid {
+    grid-column: 3;
+    text-align: right;
+}
+
+.grid>.spår {
+    grid-column: 4;
+    text-align: center;
+}
+
+.grid>.anmärkning {
+    grid-column: 5;
+    text-align: left;
+}
+
+.grid>.tågnr {
+    grid-column: 6;
+    text-align: right;
+}
+
+/*fortsättning*/
 
 .mainHeader {
     display: flex;
@@ -31,25 +87,24 @@ body {
 
 .mainHeaderText {
     margin: 0 0.5vw;
+    font-size: 1.25em;
+    letter-spacing: 2px;
 }
 
 .currentTime {
-    margin: 0 0.5vw;
+    margin: 0 4.5vw;
+    font-size: 1.25em;
     color: var(--secondary-fg);
-    
+
 }
 
 .nyTid {
     color: #80dfff;
 }
 
-.tågnr {
-    text-align: right;
-    margin: 0 0.5vw;
-}
-
 .titles {
     color: #fff;
     background-color: var(--secondary-bg);
-    padding: 0.5vw;
+
+    font-size: 0.75em;
 }
