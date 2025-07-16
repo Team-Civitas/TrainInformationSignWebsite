@@ -1,12 +1,32 @@
 import './StandardTheme.css';
+import { useState, useEffect } from 'react';
 
 function StandardTheme() {
+    // mekanik för klockan (tack stackoverflow)
+    const [klocka, setKlocka] = useState('');
+
+    useEffect(() => {
+        function uppdateraKlocka() {
+            const nu = new Date();
+            const timmar = String(nu.getHours()).padStart(2, '0');
+            const minuter = String(nu.getMinutes()).padStart(2, '0');
+            setKlocka(`${timmar}:${minuter}`);
+        }
+
+        uppdateraKlocka();
+        const intervalId = setInterval(uppdateraKlocka, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
+
+        // JSX för StandardTheme
         <div className="StandardTheme">
             <div className="header">
                 <div className="mainHeader">
                     <p className="mainHeaderText">Ankommande tåg - Train arrivals</p>
-                    <p className="currentTime">08:35</p>
+                    <p className="currentTime">{klocka}</p>
                 </div>
                 <div className="grid titles">
                     <p className='tid'>Tid</p>
