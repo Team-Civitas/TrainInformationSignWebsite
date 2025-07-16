@@ -7,16 +7,26 @@
 
 body {
     background-color: var(--primary-bg);
+
     font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.05em;
 }
 
-.grid > div, p {
+p {
+    display: inline-block;
+    transform: scaleX(1);
+    transform-origin: left bottom;
+}
+
+.grid>div,
+p {
     margin: 0 0.5vw;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 6% 60% 6% 6% 14% 8%;
+    grid-template-columns: 6% 59% 6% 6% 14% 9%;
     border-bottom: 1px solid #444;
     color: var(--secondary-fg);
     font-size: 1.25em;
@@ -28,32 +38,32 @@ body {
 
 /*grid-indelning*/
 
-.grid > .tid {
+.grid>.tid {
     grid-column: 1;
     text-align: left;
 }
 
-.grid > .från {
+.grid>.från {
     grid-column: 2;
     text-align: left;
 }
 
-.grid > .nyTid {
+.grid>.nyTid {
     grid-column: 3;
     text-align: right;
 }
 
-.grid > .spår {
+.grid>.spår {
     grid-column: 4;
     text-align: center;
 }
 
-.grid > .anmärkning {
+.grid>.anmärkning {
     grid-column: 5;
     text-align: left;
 }
 
-.grid > .tågnr {
+.grid>.tågnr {
     grid-column: 6;
     text-align: right;
 }
@@ -78,7 +88,7 @@ body {
     margin: 0 4.5vw;
     font-size: 1.25em;
     color: var(--secondary-fg);
-    
+
 }
 
 .nyTid {
@@ -88,6 +98,6 @@ body {
 .titles {
     color: #fff;
     background-color: var(--secondary-bg);
-    
+
     font-size: 0.75em;
 }

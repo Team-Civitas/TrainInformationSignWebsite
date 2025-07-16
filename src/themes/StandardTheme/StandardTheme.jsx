@@ -39,48 +39,48 @@ function StandardTheme() {
             </div>
 
             <div className="grid">
-                <div className='tid'>08:02</div>
-                <div className='från'>Stockholm C</div>
-                <div className="nyTid">08:40</div>
-                <div className='spår'>2b</div>
-                <div className='anmärkning'>Försenad</div>
-                <div className="tågnr">1234</div>
+                <p className='tid'>08:02</p>
+                <p className='från'>Stockholm C</p>
+                <p className="nyTid">08:40</p>
+                <p className='spår'>2b</p>
+                <p className='anmärkning'>Försenad</p>
+                <p className="tågnr">1234</p>
             </div>
 
             <div className="grid">
-                <div className="tid">08:10</div>
-                <div className="från">Bålsta Enköping</div>
-                <div className="nyTid">09:00</div>
-                <div className="spår">1a</div>
-                <div className="anmärkning">Sen tågvänd</div>
-                <div className="tågnr">163</div>
+                <p className="tid">08:10</p>
+                <p className="från">Bålsta Enköping</p>
+                <p className="nyTid">09:00</p>
+                <p className="spår">1a</p>
+                <p className="anmärkning">Sen tågvänd</p>
+                <p className="tågnr">163</p>
             </div>
 
             <div className="grid">
-                <div className="tid">08:36</div>
-                <div className="från">Uppsala C Stockholm C</div>
-                <div className="nyTid"></div>
-                <div className="spår">5a</div>
-                <div className="anmärkning">SJ Regional</div>
-                <div className="tågnr">1553</div>
+                <p className="tid">08:36</p>
+                <p className="från">Uppsala C Stockholm C</p>
+                <p className="nyTid"></p>
+                <p className="spår">5a</p>
+                <p className="anmärkning">SJ Regional</p>
+                <p className="tågnr">1553</p>
             </div>
 
             <div className="grid">
-                <div className="tid">09:20</div>
-                <div className="från">Bålsta Enköping</div>
-                <div className="nyTid"></div>
-                <div className="spår">3</div>
-                <div className="anmärkning">SJ Regional</div>
-                <div className="tågnr">643</div>
+                <p className="tid">09:20</p>
+                <p className="från">Bålsta Enköping</p>
+                <p className="nyTid"></p>
+                <p className="spår">3</p>
+                <p className="anmärkning">SJ Regional</p>
+                <p className="tågnr">643</p>
             </div>
 
             <div className="grid">
-                <div className="tid">09:54</div>
-                <div className="från">Bålsta Enköping</div>
-                <div className="nyTid"></div>
-                <div className="spår">4b</div>
-                <div className="anmärkning">SJ Regional</div>
-                <div className="tågnr">222</div>
+                <p className="tid">09:54</p>
+                <p className="från">Bålsta Enköping</p>
+                <p className="nyTid"></p>
+                <p className="spår">4b</p>
+                <p className="anmärkning">SJ Regional</p>
+                <p className="tågnr">222</p>
             </div>
 
 
