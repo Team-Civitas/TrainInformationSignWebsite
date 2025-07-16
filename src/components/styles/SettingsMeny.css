@@ -5,13 +5,22 @@
     justify-content: center;
     align-items: center;
     min-height: 48px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
 }
 
 .SettingsMeny {
     display: none;
     background-color: gray;
+    z-index: 1;
     padding: 16px;
     border-radius: 0px 0px 16px 16px;
+}
+
+.SettingsMeny div {
+    margin-top: 8px;
 }
 
 .SettingsMenyWrapper:hover .SettingsMeny {
