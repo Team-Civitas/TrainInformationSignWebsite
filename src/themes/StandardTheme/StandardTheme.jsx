@@ -44,6 +44,7 @@ function StandardTheme ({ trainArray }) {
                 </div>
             </div>
             
+            {console.log(trainArray)}
             {trainArray.map((train) => {
                 const toLocationString = train.ToLocation
                     .map(stationSignatureToName)
@@ -58,7 +59,7 @@ function StandardTheme ({ trainArray }) {
                             : ''}
                         </p>
                         <p className='spår'>{train.TrackAtLocation}</p>
-                        <p className='anmärkning'>{train.Deviation != undefined ? train.Deviation.join(' ') : train.InformationOwner}</p>
+                        <p className='anmärkning'>{train.Deviation != undefined ? train.Deviation.join(' ') : train.ProductInformation}</p>
                         <p className="tågnr">{train.AdvertisedTrainIdent}</p>
                     </div>
                 );
