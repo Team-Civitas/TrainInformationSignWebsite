@@ -8,15 +8,23 @@
 
     font-size: 16px;
     font-weight: bold;
-    letter-spacing: 0;
+}
+
+label {
+    color: var(--primary-fg);
 }
 
 .SettingsMeny {
     display: none;
-    background-color: gray;
     z-index: 1;
     padding: 16px;
+    width: 50vw;
+
+    background-color: #8080805d;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 0px 0px 16px 16px;
+    border: 3px solid #808080;
 }
 
 .SettingsMeny div {

@@ -46,6 +46,7 @@ function SettingsMeny({ theme, setTheme, selectedStation, setSelectedStation, st
             value={selectedStation}
             onChange={setSelectedStation}
             placeholder="Välj en Station"
+            classNamePrefix="react-select"
           />
         </div>
 
