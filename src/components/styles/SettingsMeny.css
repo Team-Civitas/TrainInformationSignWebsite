@@ -1,4 +1,4 @@
-.NavBarMenyWrapper {
+.SettingsMenyWrapper {
     position: absolute;
     width: 100vw;
     display: flex;
@@ -7,14 +7,14 @@
     min-height: 48px;
 }
 
-.NavBarMeny {
+.SettingsMeny {
     display: none;
     background-color: gray;
     padding: 16px;
     border-radius: 0px 0px 16px 16px;
 }
 
-.NavBarMenyWrapper:hover .NavBarMeny {
+.SettingsMenyWrapper:hover .SettingsMeny {
     display: inline-block;
 }
 

@@ -1,26 +1,38 @@
-import { useState, useEffect } from 'react';
-import { fetchStations } from './components/APIFunctions.jsx'; 
-import NavBarMeny from './components/SettingsMeny.jsx';
+import { useEffect, useState } from 'react';
+import { fetchStations, getStationData } from './components/APIFunctions.jsx';
+import SettingsMeny from './components/SettingsMeny.jsx';
 import { themes } from './themes/themes.js';
 
-function AcquireTheme({ theme }) {
+function AcquireTheme({ theme, stationArray }) {
   const ThemeComponent = themes[theme] || themes['StandardTheme'];
-  return <ThemeComponent />;
+  return <ThemeComponent stationArray={stationArray} />;
 }
 
 function App() {
   const [theme, setTheme] = useState('StandardTheme');
+  const [selectedStation, setSelectedStation] = useState('Cst');
+  const [stationArray, setStationArray] = useState([]);
+  const [stationList, setStationList] = useState([]);
 
-  const stations = fetchStations();
-  console.log(stations);
+  useEffect(() => {
+    async function reloadStation() {
+      try {
+        const stationData = await getStationData(selectedStation);
+        setStationArray(stationData);
+
+      } catch (err) {
+        console.error('Failed to fetch stations:', err);
+      }
+    }
+
+    reloadStation();
+  }, [selectedStation]);
+
 
   return (
     <div className="App">
-      
-      <NavBarMeny theme={theme} setTheme={setTheme} />
-
-      
-      <AcquireTheme theme={theme} />
+      <SettingsMeny theme={theme} setTheme={setTheme} selectedStation={selectedStation} setSelectedStation={setSelectedStation} />
+      <AcquireTheme theme={theme} stationArray={stationArray} />
     </div>
   );
 }

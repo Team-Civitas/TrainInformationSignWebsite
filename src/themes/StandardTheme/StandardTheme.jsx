@@ -1,6 +1,6 @@
 import './StandardTheme.css';
 
-function StandardTheme() {
+function StandardTheme({ stationArray }) {
     return (
         <div className="StandardTheme">
             <div className="header">
@@ -17,6 +17,17 @@ function StandardTheme() {
                     <div className="tågnr">Tågnummer</div>
                 </div>
             </div>
+            
+            {stationArray.map((i) =>
+            <div className="grid">
+                <div>08:02</div>
+                <div>{i.ToLocation}</div>
+                <div className="nyTid">08:40</div>
+                <div>2b</div>
+                <div>Försenad</div>
+                <div className="tågnr">1234</div>
+            </div>
+            )}
 
             <div className="grid">
                 <div>08:02</div>
