@@ -1,0 +1,20 @@
+.SimpleTheme {
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+    justify-items: center;
+
+    color: #ced64d;
+}
+
+.SimpleThemeHeader {
+    display: flex;
+    flex-direction: row;
+
+    font-weight: bolder;
+    font-size: 128px;
+}
+
+.DepartureTime {
+    margin-right: 64px;
+}
