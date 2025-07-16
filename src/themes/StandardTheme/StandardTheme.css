@@ -19,7 +19,46 @@ body {
     grid-template-columns: 1fr 35% 10% 8% 22% 15%;
     border-bottom: 1px solid #444;
     color: var(--secondary-fg);
+    font-size: 1.25em;
 }
+
+#whiteColor {
+    color: #fff;
+}
+
+/*grid-indelning*/
+
+.grid > .tid {
+    grid-column: 1;
+    text-align: left;
+}
+
+.grid > .från {
+    grid-column: 2;
+    text-align: left;
+}
+
+.grid > .nyTid {
+    grid-column: 3;
+    text-align: right;
+}
+
+.grid > .spår {
+    grid-column: 4;
+    text-align: center;
+}
+
+.grid > .anmärkning {
+    grid-column: 5;
+    text-align: left;
+}
+
+.grid > .tågnr {
+    grid-column: 6;
+    text-align: right;
+}
+
+/*fortsättning*/
 
 .mainHeader {
     display: flex;
@@ -31,6 +70,8 @@ body {
 
 .mainHeaderText {
     margin: 0 0.5vw;
+    font-size: 1.5em;
+    letter-spacing: 2px;
 }
 
 .currentTime {
@@ -43,13 +84,10 @@ body {
     color: #80dfff;
 }
 
-.tågnr {
-    text-align: right;
-    margin: 0 0.5vw;
-}
-
 .titles {
     color: #fff;
     background-color: var(--secondary-bg);
     padding: 0.5vw;
+    
+    font-size: 0.75em;
 }
