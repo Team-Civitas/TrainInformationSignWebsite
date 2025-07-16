@@ -25,12 +25,12 @@ function StandardTheme() {
         <div className="StandardTheme">
             <div className="header">
                 <div className="mainHeader">
-                    <p className="mainHeaderText">Ankommande tåg - Train arrivals</p>
+                    <p className="mainHeaderText">Avgående tåg - Train departures</p>
                     <p className="currentTime">{klocka}</p>
                 </div>
                 <div className="grid titles">
                     <p className='tid'>Tid</p>
-                    <p className='från'>Från</p>
+                    <p className='destination'>Destination</p>
                     <p className="nyTid" id='whiteColor'>Ny tid</p>
                     <p className='spår'>Spår</p>
                     <p className='anmärkning'>Anmärkning</p>
@@ -40,7 +40,7 @@ function StandardTheme() {
 
             <div className="grid">
                 <p className='tid'>08:02</p>
-                <p className='från'>Stockholm C</p>
+                <p className='destination'>Stockholm C</p>
                 <p className="nyTid">08:40</p>
                 <p className='spår'>2b</p>
                 <p className='anmärkning'>Försenad</p>
@@ -49,7 +49,7 @@ function StandardTheme() {
 
             <div className="grid">
                 <p className="tid">08:10</p>
-                <p className="från">Bålsta Enköping</p>
+                <p className="destination">Bålsta Enköping</p>
                 <p className="nyTid">09:00</p>
                 <p className="spår">1a</p>
                 <p className="anmärkning">Sen tågvänd</p>
@@ -58,7 +58,7 @@ function StandardTheme() {
 
             <div className="grid">
                 <p className="tid">08:36</p>
-                <p className="från">Uppsala C Stockholm C</p>
+                <p className="destination">Uppsala C Stockholm C</p>
                 <p className="nyTid"></p>
                 <p className="spår">5a</p>
                 <p className="anmärkning">SJ Regional</p>
@@ -67,7 +67,7 @@ function StandardTheme() {
 
             <div className="grid">
                 <p className="tid">09:20</p>
-                <p className="från">Bålsta Enköping</p>
+                <p className="destination">Bålsta Enköping</p>
                 <p className="nyTid"></p>
                 <p className="spår">3</p>
                 <p className="anmärkning">SJ Regional</p>
@@ -76,7 +76,7 @@ function StandardTheme() {
 
             <div className="grid">
                 <p className="tid">09:54</p>
-                <p className="från">Bålsta Enköping</p>
+                <p className="destination">Bålsta Enköping</p>
                 <p className="nyTid"></p>
                 <p className="spår">4b</p>
                 <p className="anmärkning">SJ Regional</p>
