@@ -29,7 +29,6 @@ async function fetchStations() {
   const data = await response.json();
 
   stationsArray = data.RESPONSE.RESULT[0].TrainStation;
-  console.log(stationsArray);
   return { stationsArray };
 }
 

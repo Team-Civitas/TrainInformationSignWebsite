@@ -44,7 +44,6 @@ function StandardTheme ({ trainArray }) {
                 </div>
             </div>
             
-            {console.log(trainArray)}
             {trainArray.map((train) => {
                 const toLocationString = train.ToLocation
                     .map(stationSignatureToName)
