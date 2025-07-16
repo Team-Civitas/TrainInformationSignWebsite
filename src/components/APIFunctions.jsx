@@ -11,32 +11,6 @@ const getStationsRequest = `<REQUEST>
   </QUERY>
 </REQUEST>`;
 
-function makeSearchRequest(stationSignature) {
-  return `<REQUEST>
-  <LOGIN authenticationkey="${APIKey}" />
-  <QUERY objecttype="TrainAnnouncement" orderby="AdvertisedTimeAtLocation" schemaversion="1">
-    <FILTER>
-      <AND>
-        <OR>
-          <AND>
-            <GT name="AdvertisedTimeAtLocation" value="$dateadd(-00:15:00)" />
-            <LT name="AdvertisedTimeAtLocation" value="$dateadd(14:00:00)" />
-          </AND>
-          <GT name="EstimatedTimeAtLocation" value="$now" />
-        </OR>
-        <EQ name="LocationSignature" value="${stationSignature}" />
-        <EQ name="ActivityType" value="Avgang" />
-      </AND>
-    </FILTER>
-    <INCLUDE>InformationOwner</INCLUDE>
-    <INCLUDE>AdvertisedTimeAtLocation</INCLUDE>
-    <INCLUDE>TrackAtLocation</INCLUDE>
-    <INCLUDE>FromLocation</INCLUDE>
-    <INCLUDE>ToLocation</INCLUDE>
-  </QUERY>
-</REQUEST>`;
-}
-
 let stationsArray = [];
 
 async function fetchStations() {
@@ -65,7 +39,25 @@ function stationSignatureToName(stationSignature) {
 }
 
 async function getTrainDataAtStation(stationSignature) {
-  const requestBody = makeSearchRequest(stationSignature);
+  const requestBody = `<REQUEST>
+  <LOGIN authenticationkey="${APIKey}" />
+  <QUERY objecttype="TrainAnnouncement" orderby="AdvertisedTimeAtLocation" schemaversion="1">
+    <FILTER>
+      <AND>
+        <OR>
+          <AND>
+            <GT name="AdvertisedTimeAtLocation" value="$dateadd(-00:15:00)" />
+            <LT name="AdvertisedTimeAtLocation" value="$dateadd(14:00:00)" />
+          </AND>
+          <GT name="EstimatedTimeAtLocation" value="$now" />
+        </OR>
+        <EQ name="LocationSignature" value="${stationSignature}" />
+        <EQ name="ActivityType" value="Avgang" />
+      </AND>
+    </FILTER>
+  </QUERY>
+</REQUEST>`;
+
   const response = await fetch(URL, {
     method: "POST",
     headers: {
@@ -86,5 +78,38 @@ async function getTrainDataAtStation(stationSignature) {
   return trainAnnouncements;
 }
 
+const getTrainAnnouncement = `<REQUEST>
+  <LOGIN authenticationkey="${APIKey}"/>
+  <QUERY objecttype="TrainAnnouncement" schemaversion="1.9" limit="99999999">
+    <FILTER>
+      <EQ name="Deleted" value="false" />
+    </FILTER>
+  </QUERY>
+</REQUEST>`;
 
-export { fetchStations, getTrainDataAtStation, stationSignatureToName };
+async function fetchTrainAnnouncements() {
+  const response = await fetch(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/xml"
+    },
+    body: getTrainAnnouncement
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  trainAnnouncementsArray = data.RESPONSE.RESULT[0];
+
+  return { trainAnnouncementsArray };
+}
+
+function operationalTrainNumberToAnnouncment(stationSignature) {
+  const station = stationsArray.find(s => s.LocationSignature === stationSignature);
+  return station ? station.AdvertisedLocationName : null;
+}
+
+export { fetchStations, getTrainDataAtStation, stationSignatureToName, fetchTrainAnnouncements, operationalTrainNumberToAnnouncment};

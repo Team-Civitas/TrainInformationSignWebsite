@@ -1,6 +1,6 @@
 import './StandardTheme.css';
 import { useState, useEffect } from 'react';
-import { stationSignatureToName } from '../../components/APIFunctions.jsx';
+import { stationSignatureToName, operationalTrainNumberToAnnouncment } from '../../components/APIFunctions.jsx';
 
 function StandardTheme ({ trainArray }) {
     // mekanik för klockan (tack stackoverflow)
@@ -21,6 +21,13 @@ function StandardTheme ({ trainArray }) {
     }, []);
 
     console.log(trainArray);
+
+    function formatTime(isoString) {
+        const date = new Date(isoString);
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${hours}:${minutes}`;
+    }
 
     return (
 
@@ -47,61 +54,19 @@ function StandardTheme ({ trainArray }) {
                     .join(' ');
                 return (
                     <div className="grid">
-                        <p className='tid'>08:02</p>
+                        <p className='tid'>{formatTime(train.AdvertisedTimeAtLocation)}</p>
                         <p className='från'>{toLocationString}</p>
-                        <p className="nyTid">08:40</p>
-                        <p className='spår'>2b</p>
-                        <p className='anmärkning'>Försenad</p>
-                        <p className="tågnr">1234</p>
+                        <p className="nyTid">
+                          {train.EstimatedTimeIsPreliminary
+                            ? formatTime(train.EstimatedTimeAtLocation)
+                            : ''}
+                        </p>
+                        <p className='spår'>{train.TrackAtLocation}</p>
+                        <p className='anmärkning'>{train.Deviation}</p>
+                        <p className="tågnr">{train.AdvertisedTrainIdent}</p>
                     </div>
                 );
             })}
-
-            <div className="grid">
-                <p className='tid'>08:02</p>
-                <p className='från'>Stockholm C</p>
-                <p className="nyTid">08:40</p>
-                <p className='spår'>2b</p>
-                <p className='anmärkning'>Försenad</p>
-                <p className="tågnr">1234</p>
-            </div>
-
-            <div className="grid">
-                <p className="tid">08:10</p>
-                <p className="från">Bålsta Enköping</p>
-                <p className="nyTid">09:00</p>
-                <p className="spår">1a</p>
-                <p className="anmärkning">Sen tågvänd</p>
-                <p className="tågnr">163</p>
-            </div>
-
-            <div className="grid">
-                <p className="tid">08:36</p>
-                <p className="från">Uppsala C Stockholm C</p>
-                <p className="nyTid"></p>
-                <p className="spår">5a</p>
-                <p className="anmärkning">SJ Regional</p>
-                <p className="tågnr">1553</p>
-            </div>
-
-            <div className="grid">
-                <p className="tid">09:20</p>
-                <p className="från">Bålsta Enköping</p>
-                <p className="nyTid"></p>
-                <p className="spår">3</p>
-                <p className="anmärkning">SJ Regional</p>
-                <p className="tågnr">643</p>
-            </div>
-
-            <div className="grid">
-                <p className="tid">09:54</p>
-                <p className="från">Bålsta Enköping</p>
-                <p className="nyTid"></p>
-                <p className="spår">4b</p>
-                <p className="anmärkning">SJ Regional</p>
-                <p className="tågnr">222</p>
-            </div>
-
 
         </div>
     )

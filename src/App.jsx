@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchStations, getTrainDataAtStation } from './components/APIFunctions.jsx';
+import { fetchStations, getTrainDataAtStation, fetchTrainAnnouncements } from './components/APIFunctions.jsx';
 import SettingsMeny from './components/SettingsMeny.jsx';
 import { themes } from './themes/themes.js';
 
@@ -23,7 +23,7 @@ function App() {
 
         const trainsData = await getTrainDataAtStation(selectedStation);
         setTrainArray(trainsData);
-
+        
       } catch (err) {
         console.error('Failed to fetch stations:', err);
       }
