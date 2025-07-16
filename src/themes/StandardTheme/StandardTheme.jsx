@@ -20,8 +20,6 @@ function StandardTheme ({ trainArray }) {
         return () => clearInterval(intervalId);
     }, []);
 
-    console.log(trainArray);
-
     function formatTime(isoString) {
         const date = new Date(isoString);
         const hours = String(date.getHours()).padStart(2, '0');

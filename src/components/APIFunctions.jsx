@@ -29,13 +29,13 @@ async function fetchStations() {
   const data = await response.json();
 
   stationsArray = data.RESPONSE.RESULT[0].TrainStation;
-
+  console.log(stationsArray);
   return { stationsArray };
 }
 
 function stationSignatureToName(stationSignature) {
   const station = stationsArray.find(s => s.LocationSignature === stationSignature);
-  return station ? station.AdvertisedLocationName : null;
+  return station ? station.AdvertisedShortLocationName : null;
 }
 
 async function getTrainDataAtStation(stationSignature) {
@@ -74,7 +74,6 @@ async function getTrainDataAtStation(stationSignature) {
   const parsed = JSON.parse(text);
 
   const trainAnnouncements = parsed.RESPONSE.RESULT[0].TrainAnnouncement;
-  console.log(trainAnnouncements);
   return trainAnnouncements;
 }
 

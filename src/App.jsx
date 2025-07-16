@@ -17,13 +17,12 @@ function App() {
   useEffect(() => {
     async function reloadStation() {
       try {
-        console.log('Fetching stations...');
         const stationsData = await fetchStations();
         setStationList(stationsData);
 
         const trainsData = await getTrainDataAtStation(selectedStation);
         setTrainArray(trainsData);
-        
+
       } catch (err) {
         console.error('Failed to fetch stations:', err);
       }
