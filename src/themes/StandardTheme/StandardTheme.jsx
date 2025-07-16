@@ -28,8 +28,6 @@ function StandardTheme ({ trainArray }) {
     }
 
     return (
-
-        // JSX för StandardTheme
         <div className="StandardTheme">
             <div className="header">
                 <div className="mainHeader">
