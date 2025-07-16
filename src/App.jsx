@@ -11,17 +11,8 @@ function AcquireTheme({ theme }) {
 function App() {
   const [theme, setTheme] = useState('StandardTheme');
 
-  useEffect(() => {
-    async function loadStations() {
-      try {
-        const stations = await fetchStations();
-        console.log(stations);
-      } catch (error) {
-        console.error("Error fetching stations:", error);
-      }
-    }
-    loadStations();
-  }, []);
+  const stations = fetchStations();
+  console.log(stations);
 
   return (
     <div className="App">

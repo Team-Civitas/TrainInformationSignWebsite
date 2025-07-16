@@ -27,7 +27,7 @@ function StandardTheme() {
                 <div className="tågnr">1234</div>
             </div>
 
-            <div class="grid">
+            <div className="grid">
                 <div>08:10</div>
                 <div>Bålsta Enköping</div>
                 <div className="nyTid">09:00</div>
@@ -36,7 +36,7 @@ function StandardTheme() {
                 <div className="tågnr">163</div>
             </div>
             
-            <div class="grid">
+            <div className="grid">
                 <div>08:36</div>
                 <div>Uppsala C Stockholm C</div>
                 <div></div>
@@ -45,7 +45,7 @@ function StandardTheme() {
                 <div className="tågnr">1553</div>
             </div>
             
-            <div class="grid">
+            <div className="grid">
                 <div>09:20</div>
                 <div>Bålsta Enköping</div>
                 <div></div>
@@ -54,7 +54,7 @@ function StandardTheme() {
                 <div className="tågnr">643</div>
             </div>
             
-            <div class="grid">
+            <div className="grid">
                 <div>09:54</div>
                 <div>Bålsta Enköping</div>
                 <div></div>
