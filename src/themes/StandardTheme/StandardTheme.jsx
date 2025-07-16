@@ -1,7 +1,8 @@
 import './StandardTheme.css';
 import { useState, useEffect } from 'react';
+import { stationSignatureToName } from '../../components/APIFunctions.jsx';
 
-function StandardTheme() {
+function StandardTheme ({ trainArray }) {
     // mekanik för klockan (tack stackoverflow)
     const [klocka, setKlocka] = useState('');
 
@@ -18,6 +19,8 @@ function StandardTheme() {
 
         return () => clearInterval(intervalId);
     }, []);
+
+    console.log(trainArray);
 
     return (
 
@@ -38,16 +41,21 @@ function StandardTheme() {
                 </div>
             </div>
             
-            {stationArray.map((i) =>
-            <div className="grid">
-                <p className='tid'>08:02</p>
-                <p className='från'>{i.ToLocation}</p>
-                <p className="nyTid">08:40</p>
-                <p className='spår'>2b</p>
-                <p className='anmärkning'>Försenad</p>
-                <p className="tågnr">1234</p>
-            </div>
-            )}
+            {trainArray.map((train) => {
+                const toLocationString = train.ToLocation
+                    .map(stationSignatureToName)
+                    .join(' ');
+                return (
+                    <div className="grid">
+                        <p className='tid'>08:02</p>
+                        <p className='från'>{toLocationString}</p>
+                        <p className="nyTid">08:40</p>
+                        <p className='spår'>2b</p>
+                        <p className='anmärkning'>Försenad</p>
+                        <p className="tågnr">1234</p>
+                    </div>
+                );
+            })}
 
             <div className="grid">
                 <p className='tid'>08:02</p>

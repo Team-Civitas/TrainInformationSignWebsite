@@ -11,7 +11,7 @@ const getStationsRequest = `<REQUEST>
   </QUERY>
 </REQUEST>`;
 
-function makeSearchRequest(station_signature) {
+function makeSearchRequest(stationSignature) {
   return `<REQUEST>
   <LOGIN authenticationkey="${APIKey}" />
   <QUERY objecttype="TrainAnnouncement" orderby="AdvertisedTimeAtLocation" schemaversion="1">
@@ -24,7 +24,7 @@ function makeSearchRequest(station_signature) {
           </AND>
           <GT name="EstimatedTimeAtLocation" value="$now" />
         </OR>
-        <EQ name="LocationSignature" value="${station_signature}" />
+        <EQ name="LocationSignature" value="${stationSignature}" />
         <EQ name="ActivityType" value="Avgang" />
       </AND>
     </FILTER>
@@ -36,6 +36,8 @@ function makeSearchRequest(station_signature) {
   </QUERY>
 </REQUEST>`;
 }
+
+let stationsArray = [];
 
 async function fetchStations() {
   const response = await fetch(URL, {
@@ -52,15 +54,18 @@ async function fetchStations() {
 
   const data = await response.json();
 
-  const stationArray = data.RESPONSE.RESULT[0].TrainStation;
-  const stationList = stationArray.map(station => station.AdvertisedLocationName);
+  stationsArray = data.RESPONSE.RESULT[0].TrainStation;
 
-  return { stationArray, stationList };
+  return { stationsArray };
 }
 
-async function getStationData(station_signature) {
-  const requestBody = makeSearchRequest(station_signature);
+function stationSignatureToName(stationSignature) {
+  const station = stationsArray.find(s => s.LocationSignature === stationSignature);
+  return station ? station.AdvertisedLocationName : null;
+}
 
+async function getTrainDataAtStation(stationSignature) {
+  const requestBody = makeSearchRequest(stationSignature);
   const response = await fetch(URL, {
     method: "POST",
     headers: {
@@ -77,8 +82,9 @@ async function getStationData(station_signature) {
   const parsed = JSON.parse(text);
 
   const trainAnnouncements = parsed.RESPONSE.RESULT[0].TrainAnnouncement;
+  console.log(trainAnnouncements);
   return trainAnnouncements;
 }
 
 
-export { fetchStations, getStationData };
+export { fetchStations, getTrainDataAtStation, stationSignatureToName };
