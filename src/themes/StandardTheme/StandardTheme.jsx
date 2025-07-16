@@ -1,5 +1,5 @@
 import './StandardTheme.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { stationSignatureToName, operationalTrainNumberToAnnouncment } from '../../components/APIFunctions.jsx';
 
 function StandardTheme ({ trainArray }) {
@@ -27,6 +27,15 @@ function StandardTheme ({ trainArray }) {
         return `${hours}:${minutes}`;
     }
 
+    const [infoIndex, setInfoIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setInfoIndex((prev) => prev + 1);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="StandardTheme">
             <div className="header">
@@ -46,9 +55,15 @@ function StandardTheme ({ trainArray }) {
             
             {console.log(trainArray)}
             {trainArray.map((train) => {
+                const deviations = Array.isArray(train.Deviation) ? train.Deviation : [];
+                const productInfo = Array.isArray(train.ProductInformation) ? train.ProductInformation : (train.ProductInformation ? [train.ProductInformation] : []);
+                const infoList = [...deviations, ...productInfo];
+                const currentInfo = infoList.length > 0 ? infoList[infoIndex % infoList.length] : '';
+
                 const toLocationString = train.ToLocation
                     .map(stationSignatureToName)
                     .join(' ');
+
                 return (
                     <div className="grid" key={train.AdvertisedTrainIdent}>
                         <p className='tid'>{formatTime(train.AdvertisedTimeAtLocation)}</p>
@@ -59,7 +74,7 @@ function StandardTheme ({ trainArray }) {
                             : ''}
                         </p>
                         <p className='spår'>{train.TrackAtLocation}</p>
-                        <p className='anmärkning'>{train.Deviation != undefined ? train.Deviation.join(' ') : train.ProductInformation}</p>
+                        <p className='anmärkning'>{currentInfo}</p>
                         <p className="tågnr">{train.AdvertisedTrainIdent}</p>
                     </div>
                 );
