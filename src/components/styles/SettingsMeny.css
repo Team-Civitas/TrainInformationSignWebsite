@@ -52,3 +52,32 @@ label {
     padding: 0.1rem;
     border-radius: 1rem;
 }
+
+/* 
+@media (max-width: 1024px) and (min-width: 768px) {
+    .SettingsMenyWrapper {
+        font-size: 14px;
+    }
+
+    .ThemeSelector select {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .SettingsMenyWrapper {
+        font-size: 12px;
+    }
+
+    .ThemeSelector select {
+        font-size: 12px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+}
