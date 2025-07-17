@@ -1,31 +1,17 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Select from 'react-select';
-import { themeList } from '../../themes/themes.js';
-import { nameToStationSignature, fetchStations } from '../../components/APIFunctions.jsx';
-import { AppContext } from '../../AppContext.jsx';
-import './SettingsMeny.css';
+import { themeList } from '../../themes/themes';
+import { nameToStationSignature } from '../../components/APIFunctions';
+import { AppContext } from '../../AppContext';
 
-function SettingsPage() {
-  const { theme, setTheme, selectedStation, setSelectedStation } = useContext(AppContext);
-  const [stationList, setStationList] = useState([]);
-
-  useEffect(() => {
-    async function reloadStations() {
-      try {
-        const stationsData = await fetchStations();
-        setStationList(stationsData);
-      } catch (err) {
-        console.error('Failed to fetch stations:', err);
-      }
-    }
-    reloadStations();
-  }, []);
+function Settings() {
+  const { theme, setTheme, selectedStation, setSelectedStation, stationList } = useContext(AppContext);
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
-        value: nameToStationSignature(station.AdvertisedLocationName),
-        label: station.AdvertisedLocationName
-      }))
+      value: nameToStationSignature(station.AdvertisedLocationName),
+      label: station.AdvertisedLocationName
+    }))
     : [];
 
   const changeTheme = (event) => {
@@ -33,32 +19,30 @@ function SettingsPage() {
   };
 
   return (
-    <div className='SettingsMenyWrapper'>
-      <div className="SettingsMeny">
-        <div className="ThemeSelector">
-          <label className="ThemeSelectorLabel">Theme: </label>
-          <select value={theme} onChange={changeTheme}>
-            {themeList.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </div>
+    <div className="SettingsPage">
+      <div className="ThemeSelector">
+        <label className="ThemeSelectorLabel">Theme: </label>
+        <select value={theme} onChange={changeTheme}>
+          {themeList.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
 
-        <div className='StationSearchMeny'>
-          <label>Selected Station: </label>
-          <Select
-            options={stationOptions}
-            value={selectedStation}
-            onChange={setSelectedStation}
-            placeholder="Välj en Station"
-            classNamePrefix="react-select"
-          />
-        </div>
+      <div className='StationSearchMeny'>
+        <label>Selected Station: </label>
+        <Select
+          options={stationOptions}
+          value={selectedStation}
+          onChange={setSelectedStation}
+          placeholder="Välj en Station"
+          classNamePrefix="react-select"
+        />
       </div>
     </div>
   );
 }
 
-export default SettingsPage;
+export default Settings;

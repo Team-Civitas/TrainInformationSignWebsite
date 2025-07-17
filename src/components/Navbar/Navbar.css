@@ -1,4 +1,4 @@
-.SettingsMenyWrapper {
+.NavbarWrapper {
     position: absolute;
     top: 0px;
     width: 100vw;
@@ -15,7 +15,7 @@ label {
     color: var(--primary-fg);
 }
 
-.SettingsMeny {
+.Navbar {
     display: block;
     z-index: 1;
     padding: 16px;
@@ -32,18 +32,18 @@ label {
     transition: opacity 0.25s ease-in-out;
 }
 
-.SettingsMeny div {
+.Navbar div {
     margin: 2px;
     border-radius: 1rem;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 }
 
-.SettingsMenyWrapper.active .SettingsMeny div {
+.NavbarWrapper.active .Navbar div {
     opacity: 1;
 }
 
-.SettingsMenyWrapper.active .SettingsMeny {
+.NavbarWrapper.active .Navbar {
     opacity: 1;
     visibility: visible;
 }
@@ -51,4 +51,33 @@ label {
 .ThemeSelector select {
     padding: 0.1rem;
     border-radius: 1rem;
+}
+
+/* 
+@media (max-width: 1024px) and (min-width: 768px) {
+    .NavbarWrapper {
+        font-size: 14px;
+    }
+
+    .ThemeSelector select {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .NavbarWrapper {
+        font-size: 12px;
+    }
+
+    .ThemeSelector select {
+        font-size: 12px;
+    }
+
+    label {
+        font-size: 12px;
+    }
 }
