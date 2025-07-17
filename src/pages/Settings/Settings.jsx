@@ -10,14 +10,15 @@ function Settings() {
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
-      value: nameToStationSignature(station.AdvertisedLocationName),
-      label: station.AdvertisedLocationName
-    }))
+        value: nameToStationSignature(station.AdvertisedLocationName),
+        label: station.AdvertisedLocationName,
+      }))
     : [];
 
-  const changeTheme = (event) => {
-    setTheme(event.target.value);
-  };
+  const themeOptions = themeList.map(t => ({
+    value: t,
+    label: t,
+  }));
 
   return (
     <div className="SettingsPage">
@@ -25,16 +26,16 @@ function Settings() {
 
       <div className="ThemeSelector">
         <label className="ThemeSelectorLabel">Theme: </label>
-        <select value={theme} onChange={changeTheme}>
-          {themeList.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+        <Select
+          options={themeOptions}
+          value={themeOptions.find(opt => opt.value === theme)}
+          onChange={(opt) => setTheme(opt.value)}
+          placeholder="Välj ett Tema"
+          classNamePrefix="react-select"
+        />
       </div>
 
-      <div className='StationSearchMeny'>
+      <div className="StationSearchMeny">
         <label>Selected Station: </label>
         <Select
           options={stationOptions}
