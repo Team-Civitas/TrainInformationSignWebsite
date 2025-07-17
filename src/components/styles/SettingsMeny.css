@@ -28,7 +28,8 @@ label {
 }
 
 .SettingsMeny div {
-    margin-top: 8px;
+    margin: 2px;
+    border-radius: 1rem;
 }
 
 .SettingsMenyWrapper:hover .SettingsMeny {
@@ -37,4 +38,5 @@ label {
 
 .ThemeSelector select {
     padding: 0.1rem;
+    border-radius: 1rem;
 }
