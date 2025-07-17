@@ -46,7 +46,7 @@ function StandardTheme ({ trainArray }) {
                         <p className='tid'>{formatTime(train.AdvertisedTimeAtLocation)}</p>
                         <p className='från'>{toLocationString}</p>
                         <p className="nyTid">
-                          {train.EstimatedTimeIsPreliminary
+                          {train.EstimatedTimeAtLocation
                             ? formatTime(train.EstimatedTimeAtLocation)
                             : ''}
                         </p>
