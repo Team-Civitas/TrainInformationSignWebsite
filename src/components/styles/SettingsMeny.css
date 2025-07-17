@@ -1,5 +1,6 @@
 .SettingsMenyWrapper {
     position: absolute;
+    top: 0px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -38,11 +39,11 @@ label {
     transition: opacity 0.25s ease-in-out;
 }
 
-.SettingsMenyWrapper:hover .SettingsMeny div {
+.SettingsMenyWrapper.active .SettingsMeny div {
     opacity: 1;
 }
 
-.SettingsMenyWrapper:hover .SettingsMeny {
+.SettingsMenyWrapper.active .SettingsMeny {
     opacity: 1;
     visibility: visible;
 }
