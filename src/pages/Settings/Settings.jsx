@@ -21,8 +21,14 @@ function Settings() {
     label: t,
   }));
 
-  function changeArrival(event) {
-    setArrival(event.target.checked)
+
+
+  function setArrivalButton() {
+    setArrival(true)
+  }
+
+  function setDepartureButton() {
+    setArrival(false)
   }
 
   return (
@@ -52,12 +58,19 @@ function Settings() {
       </div>
 
       <div>
-        Ankomst
-        <label className="switch">
-          <input type="checkbox" checked={showArrivals} onChange={changeArrival}/>
-          <span className="slider round"></span>
-        </label>
-        Avgång
+        <button
+          onClick={setArrivalButton}
+          className={`ArrivalButton ${showArrivals ? 'activeButton' : ''}`}
+        >
+          Ankomst
+        </button>
+        <button
+          onClick={setDepartureButton}
+          className={`DepartureButton ${!showArrivals ? 'activeButton' : ''}`}
+        >
+          Avgång
+        </button>
+
       </div>
 
     </div>
