@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchStations, getTrainDataAtStation, fetchTrainAnnouncements } from './components/APIFunctions.jsx';
+import { fetchStations, getTrainDataAtStation } from './components/APIFunctions.jsx';
 import SettingsMeny from './components/SettingsMeny.jsx';
 import { themes } from './themes/themes.js';
 
@@ -56,10 +56,12 @@ function App() {
         setSelectedStation={setSelectedStation}
         stationList={stationList}
       />
-      <AcquireTheme
-        theme={theme}
-        trainArray={trainArray}
-      />
+      {trainArray.length > 0 && (
+        <AcquireTheme
+          theme={theme}
+          trainArray={trainArray}
+        />
+      )}
     </div>
   );
 }
