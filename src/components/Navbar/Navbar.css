@@ -1,0 +1,29 @@
+.Navbar {
+    opacity: 0;
+
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+
+
+    justify-content: center;
+    align-content: center;
+
+    width: 100vw;
+
+    background-color: #8080805d;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 3px solid #808080;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.Navbar.active {
+    opacity: 1;
+}
+
+.Navbar a p {
+    margin: 16px;
+    color: var(--primary-fg);
+}

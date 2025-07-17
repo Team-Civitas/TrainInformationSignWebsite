@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { themeList } from '../../themes/themes';
 import { nameToStationSignature } from '../../components/APIFunctions';
 import { AppContext } from '../../AppContext';
+import { Link } from 'react-router-dom';
 
 function Settings() {
   const { theme, setTheme, selectedStation, setSelectedStation, stationList } = useContext(AppContext);
@@ -20,6 +21,8 @@ function Settings() {
 
   return (
     <div className="SettingsPage">
+      <Link to="/"><p>Back</p></Link>
+
       <div className="ThemeSelector">
         <label className="ThemeSelectorLabel">Theme: </label>
         <select value={theme} onChange={changeTheme}>

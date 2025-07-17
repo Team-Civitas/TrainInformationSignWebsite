@@ -15,7 +15,6 @@ function StandardTheme ({ trainArray }) {
     }, []);
 
     const ARRIVAL = true;
-    console.log(trainArray);
 
     if (ARRIVAL) {
         return (
