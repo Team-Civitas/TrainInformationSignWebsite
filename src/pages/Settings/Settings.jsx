@@ -1,24 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Select from 'react-select';
 import { themeList } from '../../themes/themes.js';
 import { nameToStationSignature, fetchStations } from '../../components/APIFunctions.jsx';
-import './SettingsMeny.css'
+import { AppContext } from '../../AppContext.jsx';
+import './SettingsMeny.css';
 
 function SettingsPage() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'Standard');
-  const [selectedStation, setSelectedStation] = useState(() => {
-    const stored = localStorage.getItem('selectedStation');
-    return stored ? JSON.parse(stored) : { value: 'Cst', label: 'Stockholm C' };
-  });
+  const { theme, setTheme, selectedStation, setSelectedStation } = useContext(AppContext);
   const [stationList, setStationList] = useState([]);
-
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  useEffect(() => {
-    localStorage.setItem('selectedStation', JSON.stringify(selectedStation));
-  }, [selectedStation]);
 
   useEffect(() => {
     async function reloadStations() {
@@ -34,9 +23,9 @@ function SettingsPage() {
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
-      value: nameToStationSignature(station.AdvertisedLocationName),
-      label: station.AdvertisedLocationName
-    }))
+        value: nameToStationSignature(station.AdvertisedLocationName),
+        label: station.AdvertisedLocationName
+      }))
     : [];
 
   const changeTheme = (event) => {
