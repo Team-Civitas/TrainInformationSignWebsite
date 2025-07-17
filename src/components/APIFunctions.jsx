@@ -5,7 +5,6 @@ const getStationsRequest = `<REQUEST>
   <LOGIN authenticationkey="${APIKey}"/>
   <QUERY objecttype="TrainStation" namespace="rail.infrastructure" schemaversion="1.5" limit="99999999">
     <FILTER>
-      <EQ name="CountryCode" value="SE" />
       <EQ name="Advertised" value="true" />
     </FILTER>
   </QUERY>
@@ -57,7 +56,6 @@ async function getTrainDataAtStation(stationSignature) {
           <GT name="EstimatedTimeAtLocation" value="$now" />
         </OR>
         <EQ name="LocationSignature" value="${stationSignature}" />
-        <EQ name="ActivityType" value="Avgang" />
       </AND>
     </FILTER>
   </QUERY>
