@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { fetchStations, getTrainDataAtStation } from '../../components/APIFunctions.jsx';
-import SettingsMeny from '../../components/SettingsMeny.jsx';
 import { themes } from '../../themes/themes.js';
 
 function AcquireTheme({ theme, trainArray }) {
@@ -49,13 +48,6 @@ function App() {
 
   return (
     <div className="App">
-      <SettingsMeny
-        theme={theme}
-        setTheme={setTheme}
-        selectedStation={selectedStation}
-        setSelectedStation={setSelectedStation}
-        stationList={stationList}
-      />
       {trainArray.length > 0 && (
         <AcquireTheme
           theme={theme}
