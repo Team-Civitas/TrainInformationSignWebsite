@@ -13,9 +13,8 @@ function Simple({ trainArray }) {
     if (!nextTrain) return <div className="SimpleTheme">Inga kommande avgångar</div>;
 
     const toLocationString = nextTrain.ToLocation
-        .slice(1)
         .map(stationSignatureToName)
-        .join('-');
+        .join(' → ');
 
     return (
         <div className='SimpleTheme'>
