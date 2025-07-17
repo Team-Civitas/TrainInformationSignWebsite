@@ -1,5 +1,6 @@
 .SettingsMenyWrapper {
     position: absolute;
+    top: 0px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -15,26 +16,39 @@ label {
 }
 
 .SettingsMeny {
-    display: none;
+    display: block;
     z-index: 1;
     padding: 16px;
-    width: 50vw;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
 
     background-color: #8080805d;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-radius: 0px 0px 16px 16px;
     border: 3px solid #808080;
+    border-left: 0px;
+    border-right: 0px;
+    transition: opacity 0.25s ease-in-out;
 }
 
 .SettingsMeny div {
-    margin-top: 8px;
+    margin: 2px;
+    border-radius: 1rem;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
 }
 
-.SettingsMenyWrapper:hover .SettingsMeny {
-    display: inline-block;
+.SettingsMenyWrapper.active .SettingsMeny div {
+    opacity: 1;
+}
+
+.SettingsMenyWrapper.active .SettingsMeny {
+    opacity: 1;
+    visibility: visible;
 }
 
 .ThemeSelector select {
     padding: 0.1rem;
+    border-radius: 1rem;
 }
