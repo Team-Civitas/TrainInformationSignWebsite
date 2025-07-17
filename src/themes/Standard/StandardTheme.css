@@ -5,12 +5,17 @@
     --secondary-bg: #303030;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 body {
     background-color: var(--secondary-bg);
 
     font-size: 2em;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
+    overflow: scroll;
 }
 
 .StandardTheme > .grid:nth-child(odd) {
@@ -29,12 +34,12 @@ p {
 
 .grid>div,
 p {
-    margin: 0 0.5vw;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 6.5% 58% 6.5% 6% 14% 9%;
+    gap: 0.5vw;
+    grid-template-columns: 6.5% 55% 6.5% 6% 14% 9%;
     color: var(--secondary-fg);
     font-size: 1.25em;
 }
@@ -48,6 +53,7 @@ p {
 .grid>.tid {
     grid-column: 1;
     text-align: left;
+    margin-left: 0.5vw;
 }
 
 .grid>.från {
@@ -107,4 +113,47 @@ p {
     background-color: var(--secondary-bg);
 
     font-size: 0.75em;
+}
+
+/* Surfplatta */
+@media (max-width: 1024px) and (min-width: 768px) {
+    body {
+        font-size: 1.5em;
+    }
+
+    .grid {
+        font-size: 1em;
+        grid-template-columns: 10% 40% 9% 7% 22% 9%;
+    }
+
+    .mainHeaderText,
+    .currentTime {
+        font-size: 1em;
+    }
+
+    .titles {
+        font-size: 0.65em;
+    }
+}
+
+/* Mobil */
+@media (max-width: 767px) {
+    body {
+        font-size: 1.2em;
+    }
+
+    .grid {
+        font-size: 0.7em;
+        grid-template-columns: 10% 40% 9% 7% 22% 9%;
+
+    }
+
+    .mainHeaderText,
+    .currentTime {
+        font-size: 0.8em;
+    }
+
+    .titles {
+        font-size: 0.5em;
+    }
 }
