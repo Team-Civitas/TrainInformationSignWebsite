@@ -5,13 +5,9 @@ API_KEY=<YOUR_API_KEY>
 PORT=3001
 ```
 
-Then in /server run
+Then run
 ```
-npm install
-```
-
-And finally run in root
-```
+npm --prefix server install
 npm install
 npm run dev
 ```
