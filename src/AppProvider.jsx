@@ -6,7 +6,7 @@ export function AppProvider({ children }) {
     const [trainArray, setTrainArray] = useState([]);
     const [stationList, setStationList] = useState([]);
 
-    const [isArrival, setArrival] = useState(() => {
+    const [showArrivals, setArrival] = useState(() => {
         const stored = localStorage.getItem('arrival');
         return stored === 'true';
     });
@@ -17,8 +17,8 @@ export function AppProvider({ children }) {
     });
 
     useEffect(() => {
-        localStorage.setItem('arrival', isArrival);
-    }, [isArrival])
+        localStorage.setItem('arrival', showArrivals);
+    }, [showArrivals])
 
     useEffect(() => {
         localStorage.setItem('theme', theme);
@@ -56,7 +56,7 @@ export function AppProvider({ children }) {
             setTrainArray,
             stationList,
             setStationList,
-            isArrival,
+            showArrivals,
             setArrival
         }}>
             {children}

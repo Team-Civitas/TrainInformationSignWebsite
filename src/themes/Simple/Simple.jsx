@@ -5,15 +5,15 @@ import { stationSignatureToName } from '../../components/APIFunctions';
 import { formatTime } from '../../components/time';
 
 function Simple({ trainArray }) {
-  const { isArrival } = useContext(AppContext);
+  const { showArrivals } = useContext(AppContext);
 
-  const activityTypeToMatch = !isArrival ? 'Ankomst' : 'Avgang';
+  const activityTypeToMatch = !showArrivals ? 'Ankomst' : 'Avgang';
   const nextTrain = trainArray.find(train => train.ActivityType === activityTypeToMatch);
 
   if (!nextTrain) {
     return (
       <div className="NoTrain">
-        {!isArrival ? 'Inga kommande ankomster' : 'Inga kommande avgångar'}
+        {!showArrivals ? 'Inga kommande ankomster' : 'Inga kommande avgångar'}
       </div>
     );
   }

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import './Setting.css'
 
 function Settings() {
-  const { theme, setTheme, selectedStation, setSelectedStation, stationList, isArrival, setArrival } = useContext(AppContext);
+  const { theme, setTheme, selectedStation, setSelectedStation, stationList, showArrivals, setArrival } = useContext(AppContext);
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
@@ -54,7 +54,7 @@ function Settings() {
       <div>
         Ankomst
         <label className="switch">
-          <input type="checkbox" checked={isArrival} onChange={changeArrival}/>
+          <input type="checkbox" checked={showArrivals} onChange={changeArrival}/>
           <span className="slider round"></span>
         </label>
         Avgång

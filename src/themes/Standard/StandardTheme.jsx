@@ -6,7 +6,7 @@ import Clock from '../../components/clock.jsx';
 import { AppContext } from '../../AppContext.js';
 
 function StandardTheme ({ trainArray }) {
-    const { isArrival } = useContext(AppContext);
+    const { showArrivals } = useContext(AppContext);
     const [infoIndex, setInfoIndex] = useState(0);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function StandardTheme ({ trainArray }) {
         return () => clearInterval(interval);
     }, []);
 
-    const ARRIVAL = isArrival;
+    const ARRIVAL = showArrivals;
 
     if (ARRIVAL) {
         return (
