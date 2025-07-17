@@ -1,10 +1,12 @@
 import './StandardTheme.css';
-import { useState, useEffect } from 'react';
-import { stationSignatureToName, operationalTrainNumberToAnnouncment } from '../../components/APIFunctions.jsx';
+import { useState, useEffect, useContext } from 'react';
+import { stationSignatureToName } from '../../components/APIFunctions.jsx';
 import { formatTime } from '../../components/time.jsx';
 import Clock from '../../components/clock.jsx';
+import { AppContext } from '../../AppContext.js';
 
 function StandardTheme ({ trainArray }) {
+    const { isArrival } = useContext(AppContext);
     const [infoIndex, setInfoIndex] = useState(0);
 
     useEffect(() => {
@@ -14,7 +16,7 @@ function StandardTheme ({ trainArray }) {
         return () => clearInterval(interval);
     }, []);
 
-    const ARRIVAL = true;
+    const ARRIVAL = isArrival;
 
     if (ARRIVAL) {
         return (

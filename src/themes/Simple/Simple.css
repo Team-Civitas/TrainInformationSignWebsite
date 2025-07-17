@@ -18,3 +18,16 @@
 .DepartureTime {
     margin-right: 64px;
 }
+
+.NoTrain {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ced64d;
+    font-size: 48px;
+    text-align: center;
+}

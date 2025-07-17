@@ -6,11 +6,19 @@ export function AppProvider({ children }) {
     const [trainArray, setTrainArray] = useState([]);
     const [stationList, setStationList] = useState([]);
 
+    const [isArrival, setArrival] = useState(() => {
+        const stored = localStorage.getItem('arrival');
+        return stored === 'true';
+    });
     const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'Standard');
     const [selectedStation, setSelectedStation] = useState(() => {
         const stored = localStorage.getItem('selectedStation');
         return stored ? JSON.parse(stored) : { value: 'Cst', label: 'Stockholm C' };
     });
+
+    useEffect(() => {
+        localStorage.setItem('arrival', isArrival);
+    }, [isArrival])
 
     useEffect(() => {
         localStorage.setItem('theme', theme);
@@ -47,10 +55,11 @@ export function AppProvider({ children }) {
             trainArray,
             setTrainArray,
             stationList,
-            setStationList
+            setStationList,
+            isArrival,
+            setArrival
         }}>
             {children}
         </AppContext.Provider>
-
     );
 }
