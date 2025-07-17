@@ -4,15 +4,16 @@ import { themeList } from '../../themes/themes';
 import { nameToStationSignature } from '../../components/APIFunctions';
 import { AppContext } from '../../AppContext';
 import { Link } from 'react-router-dom';
+import './Setting.css'
 
 function Settings() {
   const { theme, setTheme, selectedStation, setSelectedStation, stationList } = useContext(AppContext);
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
-        value: nameToStationSignature(station.AdvertisedLocationName),
-        label: station.AdvertisedLocationName,
-      }))
+      value: nameToStationSignature(station.AdvertisedLocationName),
+      label: station.AdvertisedLocationName,
+    }))
     : [];
 
   const themeOptions = themeList.map(t => ({
@@ -45,6 +46,16 @@ function Settings() {
           classNamePrefix="react-select"
         />
       </div>
+
+      <div>
+        Ankomst
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        Avgång
+      </div>
+
     </div>
   );
 }
