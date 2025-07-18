@@ -73,7 +73,7 @@ function Settings() {
           </div>
 
           <div className="StationSearchMeny">
-            <h2>{t.chooseSLStation}SL :</h2>
+            <h2>{t.chooseStation} (SL) :</h2>
             <MySelect
               options={SLStationOptions}
               value={SLSelectedStation}
