@@ -128,6 +128,47 @@ app.post('/api/train-announcements', async (req, res) => {
   }
 });
 
+app.post('/api/sl-stations', async (req, res) => {
+  try {
+    const response = await axios.get('https://transport.integration.sl.se/v1/sites?expand=true', {}, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    res.json(response.data.map(station => ({
+      id: station.id,
+      name: station.name
+    })));
+  } catch (error) {
+    console.error('SL API error:', error.response?.data || error.message);
+    res.status(error.response?.status || 500).json({
+      error: 'SL API request failed',
+      message: error.response?.data?.error || error.message
+    });
+  }
+});
+
+app.get('/api/sl-train-data/:stationID', async (req, res) => {
+  try {
+    const { stationID } = req.params;
+
+    const response = await axios.get(`https://transport.integration.sl.se/v1/sites/${stationID}/departures`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error('SL train data API error:', error.response?.data || error.message);
+    res.status(error.response?.status || 500).json({
+      error: 'SL train data request failed',
+      message: error.response?.data?.error || error.message
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
   console.log('Available endpoints:');
@@ -136,6 +177,7 @@ app.listen(PORT, () => {
   console.log(`  POST /api/stations - Fetch train stations`);
   console.log(`  POST /api/train-data/:stationSignature - Fetch train data for station`);
   console.log(`  POST /api/train-announcements - Fetch train announcements`);
+  console.log(`  POST /api/sl-stations - Fetch SL stations`);
 });
 
 module.exports = app;

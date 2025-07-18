@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { AppContext } from './AppContext';
-import { fetchStations, getTrainDataAtStation } from './components/APIFunctions';
+import { fetchStations, getTrainDataAtStation, fetchSLStations } from './components/APIFunctions';
 
 export function AppProvider({ children }) {
     const [trainArray, setTrainArray] = useState([]);
     const [stationList, setStationList] = useState([]);
+    const [SLStationList, setSLStationList] = useState([]);
 
 
     const [language, setLanguage] = useState(() => {
@@ -42,6 +43,9 @@ export function AppProvider({ children }) {
             try {
                 const stationsData = await fetchStations();
                 setStationList(stationsData);
+
+                const SLStationsData = await fetchSLStations();
+                setSLStationList(SLStationsData);
 
                 const trainsData = await getTrainDataAtStation(selectedStation.value);
                 setTrainArray(trainsData);

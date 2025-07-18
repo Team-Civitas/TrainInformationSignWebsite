@@ -106,6 +106,51 @@ function operationalTrainNumberToAnnouncment(stationSignature) {
   return station ? station.AdvertisedLocationName : null;
 }
 
+async function fetchSLStations() {
+  try {
+    const response = await fetch(`${SERVER_URL}/api/sl-stations`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const stations = data
+    return { stations };
+  } catch (error) {
+    console.error('Error fetching SL stations:', error);
+    throw error;
+  }
+}
+
+async function getSLTrainDataAtStation(stationID) {
+  try {
+    const response = await fetch(`${SERVER_URL}/api/SLtrainData-data/${stationSignature}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const trainAnnouncements = data;
+    return trainAnnouncements;
+  } catch (error) {
+    console.error('Error fetching train data:', error);
+    throw error;
+  }
+}
+
+
 export { 
   fetchStations, 
   getTrainDataAtStation, 
@@ -113,5 +158,6 @@ export {
   fetchTrainAnnouncements, 
   operationalTrainNumberToAnnouncment, 
   nameToStationSignature,
-  makeTrafikverketRequest
+  makeTrafikverketRequest,
+  fetchSLStations
 };
