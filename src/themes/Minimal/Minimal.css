@@ -1,33 +1,92 @@
 .SimpleTheme {
-    width: 100vw;
-    height: 100vh;
-    align-content: center;
-    justify-items: center;
-
-    color: #ced64d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2b2b2b;
+  color: #ced64d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .SimpleThemeHeader {
-    display: flex;
-    flex-direction: row;
-
-    font-weight: bolder;
-    font-size: 128px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-weight: 900;
+  font-size: 120px;
+  gap: 40px;
 }
 
 .DepartureTime {
-    margin-right: 64px;
+  font-variant-numeric: tabular-nums;
+}
+
+.FirstTrain {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.FirstTrain > div:last-child {
+  font-size: 24px;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+.NextTrainsList {
+  width: 100%;
+  max-width: 35vw;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.TrainSummary {
+  display: grid;
+  grid-template-columns: 80px 160px 1fr;
+  align-items: center;
+  background-color: #3a3a3a;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.TrainSummary:hover {
+  background-color: #4e4e1a;
+  cursor: default;
+}
+
+.Time {
+  font-variant-numeric: tabular-nums;
+}
+
+.Destination {
+  font-weight: 700;
+  color: #f4f8b8;
+}
+
+.Route {
+  color: #d6d661;
+  font-style: italic;
 }
 
 .NoTrain {
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #ced64d;
-    font-size: 48px;
-    text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ced64d;
+  font-size: 48px;
+  text-align: center;
+  background-color: #2b2b2b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
 }
