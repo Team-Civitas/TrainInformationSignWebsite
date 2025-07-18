@@ -1,8 +1,8 @@
 {
-    "noArrivals": "Inga kommande ankomster",
-    "noDepartures": "Inga kommande avgångar",
-    "destinationUnknown": "Okänd destination",
-    "numberOfTrains": "Antal tåg:",
-    "themeColor": "Temafärg:",
-    "resetColor": "Återställ färg"
+    "noArrivals": "No upcoming arrivals",
+    "noDepartures": "No upcoming departures",
+    "destinationUnknown": "Unknown destination",
+    "numberOfTrains": "Number of trains:",
+    "themeColor": "Theme Color:",
+    "resetColor": "Reset Color"
 }
