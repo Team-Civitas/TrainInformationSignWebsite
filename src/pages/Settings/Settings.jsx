@@ -8,6 +8,7 @@ import MySelect from '../../components/MySelect/MySelect';
 import { AcquireThemeSettings } from '../../components/AcquireTheme';
 import { languageOptions } from '../../languages/languages';
 import { translations } from '../../languages/languages';
+import MyButton from '../../components/MyButton/MyButton';
 
 function Settings() {
   const { theme, setTheme, selectedStation, setSelectedStation, stationList, SLSelectedStation, setSLSelectedStation, SLStationList, showArrivals, setArrival, language, setLanguage } = useContext(AppContext);
@@ -84,18 +85,18 @@ function Settings() {
           <div className='DepArrButtons'>
             <h2>{t.chooseDisplay}:</h2>
             <div>
-              <button
+              <MyButton
                 onClick={() => setArrival(true)}
                 className={`TwinButton ArrButton DefaultButton ${showArrivals ? 'DefaultActiveButton' : ''}`}
-              >
-                {t.Arrival}
-              </button>
-              <button
+                title={t.Arrival}
+                type="left"
+              />
+              <MyButton
                 onClick={() => setArrival(false)}
                 className={`TwinButton DepButton DefaultButton ${!showArrivals ? 'DefaultActiveButton' : ''}`}
-              >
-                {t.Departure}
-              </button>
+                title={t.Departure}
+                type="right"
+              />
             </div>
 
           </div>

@@ -39,46 +39,6 @@
   margin-top: 2vh; /*Total of 3 view height thanks to margin in SettingsMain-class (matches Global settings header)*/
 }
 
-/*Default Header Styling*/
-
-h1, h2 {
-  color: var(--primary-fg);
-  margin: 1vh auto;
-}
-
-h1 {
-  font-size: 1em;
-  margin-bottom: 2.5vh;
-}
-
-h2 {
-  font-size: 0.75em;
-}
-
-/*Default Button Styling*/
-
-.DefaultButton {
-
-    color: var(--primary-fg); /*Text color*/
-    background-color: #8080805d;
-    border: 3px solid var(--default-border);
-    border-radius: 50vw;
-    font-size: 0.75em;
-    
-    padding: 0.5vh 1vw;
-
-    transition: 0.1s ease-in-out;
-}
-
-.DefaultButton:hover {
-  cursor: pointer;
-  background-color: var(--hover-bg);
-}
-.DefaultActiveButton {
-  color: var(--primary-fg);
-  background-color: var(--hover-bg);
-}
-
 /*Language Selector*/
 
 .LanguageSelector {
@@ -101,19 +61,9 @@ h2 {
   align-items: center;
 }
 
-.TwinButton {
+.DepArrButtons .TwinButton {
   width: 10vw;
   margin-bottom: 2vh;
-}
-
-.DepButton {
-  border-radius:0 50vw 50vw 0;
-  border-left: 0;
-}
-
-.ArrButton {
-  border-radius:50vw 0 0 50vw;
-  border-right: 0;
 }
 
 /*Comment Ending*/
