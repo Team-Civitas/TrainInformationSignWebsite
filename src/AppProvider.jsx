@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { AppContext } from './AppContext';
-import { fetchStations, getTrainDataAtStation, fetchSLStations } from './components/APIFunctions';
+import { fetchStations, getTrainDataAtStation, fetchSLStations, getSLTrainDataAtStation } from './components/APIFunctions';
 
 export function AppProvider({ children }) {
     const [trainArray, setTrainArray] = useState([]);
     const [stationList, setStationList] = useState([]);
     const [SLStationList, setSLStationList] = useState([]);
-
+    const [SLTrainArray, setSLTrainArray] = useState([]);
 
     const [language, setLanguage] = useState(() => {
         const stored = localStorage.getItem('language');
@@ -19,6 +19,10 @@ export function AppProvider({ children }) {
     const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'Standard');
     const [selectedStation, setSelectedStation] = useState(() => {
         const stored = localStorage.getItem('selectedStation');
+        return stored ? JSON.parse(stored) : { value: 'Cst', label: 'Stockholm C' };
+    });
+    const [SLSelectedStation, setSLSelectedStation] = useState(() => {
+        const stored = localStorage.getItem('SLSelectedStation');
         return stored ? JSON.parse(stored) : { value: 'Cst', label: 'Stockholm C' };
     });
 
@@ -39,6 +43,10 @@ export function AppProvider({ children }) {
     }, [selectedStation]);
 
     useEffect(() => {
+        localStorage.setItem('SLSelectedStation', JSON.stringify(SLSelectedStation));
+    }, [SLSelectedStation]);
+
+    useEffect(() => {
         async function reloadStation() {
             try {
                 const stationsData = await fetchStations();
@@ -49,6 +57,9 @@ export function AppProvider({ children }) {
 
                 const trainsData = await getTrainDataAtStation(selectedStation.value);
                 setTrainArray(trainsData);
+
+                const SLTrainData = await getSLTrainDataAtStation(SLSelectedStation.value);
+                setSLTrainArray(SLTrainData);
             } catch (err) {
                 console.error('Failed to fetch stations:', err);
             }
@@ -65,10 +76,16 @@ export function AppProvider({ children }) {
             setTheme,
             selectedStation,
             setSelectedStation,
+            SLSelectedStation,
+            setSLSelectedStation,
             trainArray,
             setTrainArray,
+            SLTrainArray,
+            setSLTrainArray,
             stationList,
             setStationList,
+            SLStationList,
+            setSLStationList,
             showArrivals,
             setArrival,
             language,

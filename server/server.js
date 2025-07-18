@@ -149,7 +149,7 @@ app.post('/api/sl-stations', async (req, res) => {
   }
 });
 
-app.get('/api/sl-train-data/:stationID', async (req, res) => {
+app.post('/api/sl-train-data/:stationID', async (req, res) => {
   try {
     const { stationID } = req.params;
 

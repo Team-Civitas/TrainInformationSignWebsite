@@ -1,8 +1,8 @@
 import { themes, themeSettings } from "../themes/themes";
 
-function AcquireTheme({ theme, trainArray }) {
+function AcquireTheme({ theme, trainArray, SLTrainArray }) {
   const ThemeComponent = themes[theme] || themes['Standard'];
-  return <ThemeComponent trainArray={trainArray} />;
+  return <ThemeComponent trainArray={trainArray} SLTrainArray={SLTrainArray} />;
 }
 
 function AcquireThemeSettings({ theme }) {

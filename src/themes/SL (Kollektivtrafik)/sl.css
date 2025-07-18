@@ -1,3 +1,77 @@
-.ThemeSL {
-    background-color: red;
+.SLTheme {
+    background-color: var(--sl-dark);
+}
+
+/*Main header*/
+
+.SL-mainHeader {
+    background-color: var(--sl-gray);
+    font-weight: bold;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.SL-mainHeaderText {
+    color: var(--primary-fg);
+    font-size: 2em;
+}
+
+.SL-English{
+    color: var(--sl-english)
+}
+
+/*Logotypes for secondary nav*/
+
+#SL-logotype-nav{
+    width: 50px;
+    filter: grayscale(100) brightness(100);
+}
+
+#TrafficType-logotype-nav {
+    width: 5%;
+    height: 5%;
+
+}
+
+.SL-mainHeader > div {
+    display: flex;
+    flex-direction: row;
+}
+
+/*grid*/
+
+.SL-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: var(--secondary-fg);
+    font-size: 1.25em;
+}
+
+/*grid-indelning*/
+
+.SL-grid>.linje {
+    grid-column: 1;
+    text-align: left;
+    margin-left: 0.5vw;
+}
+
+.SL-grid>.destination {
+    grid-column: 2;
+    text-align: left;
+    margin-left: 0.5vw;
+}
+
+.SL-grid>.spår {
+    grid-column: 3;
+    text-align: left;
+    margin-left: 0.5vw;
+}
+
+.SL-grid>.tid {
+    grid-column: 4;
+    text-align: left;
+    margin-left: 0.5vw;
 }

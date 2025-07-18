@@ -1,11 +1,19 @@
 /*Root-variables for all .css-files*/
 :root {
+  /*Site styling*/
+  --default-border: #c2c2c2;
+  --hover-bg: #ffffff5d;
+
+  /*Trafikverket*/
     --primary-fg: #fff;
     --secondary-fg: #ced64d;
     --primary-bg: #222;
     --secondary-bg: #303030;
-    --default-border: #c2c2c2;
-    --hover-bg: #ffffff5d;
+
+  /*Storstockholms lokaltrafik*/
+    --sl-english: #fede02;
+    --sl-gray: #424b52;
+    --sl-dark: #000;
 }
 
 /*Settings Page - Main*/

@@ -130,7 +130,7 @@ async function fetchSLStations() {
 
 async function getSLTrainDataAtStation(stationID) {
   try {
-    const response = await fetch(`${SERVER_URL}/api/SLtrainData-data/${stationSignature}`, {
+    const response = await fetch(`${SERVER_URL}/api/sl-train-data/${stationID}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -159,5 +159,6 @@ export {
   operationalTrainNumberToAnnouncment, 
   nameToStationSignature,
   makeTrafikverketRequest,
-  fetchSLStations
+  fetchSLStations,
+  getSLTrainDataAtStation
 };

@@ -4,7 +4,7 @@ import { AcquireTheme } from '../../components/AcquireTheme.jsx';
 import Navbar from '../../components/Navbar/Navbar.jsx';
 
 function App() {
-  const { theme, trainArray } = useContext(AppContext);
+  const { theme, trainArray, SLTrainArray } = useContext(AppContext);
 
   return (
     <div className="App">
@@ -13,6 +13,7 @@ function App() {
         <AcquireTheme
           theme={theme}
           trainArray={trainArray}
+          SLTrainArray={SLTrainArray}
         />
       )}
     </div>

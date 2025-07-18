@@ -10,13 +10,20 @@ import { languageOptions } from '../../languages/languages';
 import { translations } from '../../languages/languages';
 
 function Settings() {
-  const { theme, setTheme, selectedStation, setSelectedStation, stationList, showArrivals, setArrival, language, setLanguage } = useContext(AppContext);
+  const { theme, setTheme, selectedStation, setSelectedStation, stationList, SLSelectedStation, setSLSelectedStation, SLStationList, showArrivals, setArrival, language, setLanguage } = useContext(AppContext);
   const t = translations[language.value]
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
       value: nameToStationSignature(station.AdvertisedLocationName),
       label: station.AdvertisedLocationName,
+    }))
+    : [];
+
+  const SLStationOptions = Array.isArray(SLStationList.stations)
+    ? SLStationList.stations.map(station => ({
+      value: station.id,
+      label: station.name,
     }))
     : [];
 
@@ -61,6 +68,16 @@ function Settings() {
               value={selectedStation}
               onChange={setSelectedStation}
               placeholder={t.chooseStation}
+            />
+          </div>
+
+          <div className="StationSearchMeny">
+            <h2>{t.chooseSLStation}SL :</h2>
+            <MySelect
+              options={SLStationOptions}
+              value={SLSelectedStation}
+              onChange={setSLSelectedStation}
+              placeholder={t.chooseSLStation}
             />
           </div>
 
