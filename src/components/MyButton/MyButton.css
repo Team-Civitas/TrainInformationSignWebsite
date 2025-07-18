@@ -1,0 +1,23 @@
+/*Default Button Styling*/
+
+.DefaultButton {
+
+    color: var(--primary-fg); /*Text color*/
+    background-color: #8080805d;
+    border: 3px solid var(--default-border);
+    border-radius: 50vw;
+    font-size: 0.75em;
+    
+    padding: 0.5vh 1vw;
+
+    transition: 0.1s ease-in-out;
+}
+
+.DefaultButton:hover {
+  cursor: pointer;
+  background-color: var(--hover-bg);
+}
+.DefaultActiveButton {
+  color: var(--primary-fg);
+  background-color: var(--hover-bg);
+}
