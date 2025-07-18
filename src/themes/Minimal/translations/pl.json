@@ -1,5 +1,8 @@
 {
     "noArrivals": "Brak nadchodzących przyjazdów",
     "noDepartures": "Brak nadchodzących odjazdów",
-    "destinationUnknown": "Nieznany cel podróży"
+    "destinationUnknown": "Nieznany cel podróży",
+    "numberOfTrains": "Liczba pociągów:",
+    "themeColor": "Kolor motywu:",
+    "resetColor": "Resetuj kolor"
 }

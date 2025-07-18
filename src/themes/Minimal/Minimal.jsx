@@ -15,6 +15,9 @@ export function ThemeSettings() {
   const [trainAmount, setTrainAmount] = usePersistentState("minimalThemeTrainAmount", MinimalThemeDefaults);
   const [themeColor, setThemeColor] = usePersistentState("minimalThemeColor", MinimalThemeDefaults);
 
+  const { language } = useContext(AppContext);
+  const t = translations[language.value];
+
   const resetColor = () => {
     setThemeColor(MinimalThemeDefaults.minimalThemeColor);
   }
@@ -22,7 +25,7 @@ export function ThemeSettings() {
   return (
     <div className='MinimalThemeSettings'>
       <label>
-        Number of trains:
+        {t.numberOfTrains}
         <input
           type="number"
           min="0"
@@ -33,7 +36,7 @@ export function ThemeSettings() {
       </label>
 
       <label style={{ marginLeft: '20px' }}>
-        Theme Color:
+        {t.themeColor}
         <input
           type="color"
           value={themeColor}
@@ -43,7 +46,7 @@ export function ThemeSettings() {
       </label>
 
       <button onClick={resetColor} style={{ marginLeft: '20px', padding: '4px 10px', cursor: 'pointer' }}>
-        Reset Color
+        {t.resetColor}
       </button>
     </div>
   );
