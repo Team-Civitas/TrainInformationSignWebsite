@@ -16,7 +16,7 @@ export function ThemeSettings() {
   const [themeColor, setThemeColor] = usePersistentState("minimalThemeColor", MinimalThemeDefaults);
 
   const { language } = useContext(AppContext);
-  const t = translations[language.value];
+  const t = translations[language.value] || translations['sv'];
 
   const resetColor = () => {
     setThemeColor(MinimalThemeDefaults.minimalThemeColor);
@@ -58,7 +58,7 @@ function Simple({ trainArray }) {
   const [trainAmount] = usePersistentState("minimalThemeTrainAmount", MinimalThemeDefaults);
   const [themeColor] = usePersistentState("minimalThemeColor", MinimalThemeDefaults);
 
-  const t = translations[language.value];
+  const t = translations[language.value] || translations['sv'];
   const activityTypeToMatch = showArrivals ? 'Ankomst' : 'Avgang';
 
   const filteredTrains = trainArray.filter(train => train.ActivityType === activityTypeToMatch);
