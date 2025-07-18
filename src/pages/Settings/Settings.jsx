@@ -3,7 +3,6 @@ import { themeList } from '../../themes/themes';
 import { nameToStationSignature } from '../../components/APIFunctions';
 import { AppContext } from '../../AppContext';
 import './Settings.css'
-import '../../components/Navbar/Navbar.css';
 import Navbar from '../../components/Navbar/Navbar';
 import MySelect from '../../components/MySelect/MySelect';
 import { AcquireThemeSettings } from '../../components/AcquireTheme';
@@ -28,7 +27,7 @@ function Settings() {
 
   return (
     <div>
-      <Navbar className="active" style={{ position: 'relative' }} />
+      <Navbar className="active" />
 
       <div className="SettingsMain">
 
