@@ -6,6 +6,11 @@ export function AppProvider({ children }) {
     const [trainArray, setTrainArray] = useState([]);
     const [stationList, setStationList] = useState([]);
 
+
+    const [language, setLanguage] = useState(() => {
+        const stored = localStorage.getItem('language');
+        return stored ? JSON.parse(stored) : { value: 'sv', label: 'Svenska 🇸🇪' };
+    });
     const [showArrivals, setArrival] = useState(() => {
         const stored = localStorage.getItem('arrival');
         return stored === 'true';
@@ -15,6 +20,10 @@ export function AppProvider({ children }) {
         const stored = localStorage.getItem('selectedStation');
         return stored ? JSON.parse(stored) : { value: 'Cst', label: 'Stockholm C' };
     });
+
+    useEffect(() => {
+        localStorage.setItem('language', JSON.stringify(language));
+    }, [language]);
 
     useEffect(() => {
         localStorage.setItem('arrival', showArrivals);
@@ -57,7 +66,9 @@ export function AppProvider({ children }) {
             stationList,
             setStationList,
             showArrivals,
-            setArrival
+            setArrival,
+            language,
+            setLanguage
         }}>
             {children}
         </AppContext.Provider>

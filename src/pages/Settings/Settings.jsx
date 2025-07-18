@@ -1,13 +1,18 @@
 import { useContext } from 'react';
-import Select from 'react-select';
 import { themeList } from '../../themes/themes';
 import { nameToStationSignature } from '../../components/APIFunctions';
 import { AppContext } from '../../AppContext';
-import { Link } from 'react-router-dom';
-import './Setting.css'
+import './Settings.css'
+import '../../components/Navbar/Navbar.css';
+import Navbar from '../../components/Navbar/Navbar';
+import MySelect from '../../components/MySelect/MySelect';
+import { AcquireThemeSettings } from '../../components/AcquireTheme';
+import { languageOptions } from '../../languages/languages';
+import { translations } from '../../languages/languages';
 
 function Settings() {
-  const { theme, setTheme, selectedStation, setSelectedStation, stationList, showArrivals, setArrival } = useContext(AppContext);
+  const { theme, setTheme, selectedStation, setSelectedStation, stationList, showArrivals, setArrival, language, setLanguage } = useContext(AppContext);
+  const t = translations[language.value]
 
   const stationOptions = Array.isArray(stationList.stationsArray)
     ? stationList.stationsArray.map(station => ({
@@ -21,57 +26,72 @@ function Settings() {
     label: t,
   }));
 
-
-
-  function setArrivalButton() {
-    setArrival(true)
-  }
-
-  function setDepartureButton() {
-    setArrival(false)
-  }
-
   return (
-    <div className="SettingsPage">
-      <Link to="/"><p>Back</p></Link>
+    <div>
+      <Navbar className="active" style={{ position: 'relative' }} />
 
-      <div className="ThemeSelector">
-        <label className="ThemeSelectorLabel">Theme: </label>
-        <Select
-          options={themeOptions}
-          value={themeOptions.find(opt => opt.value === theme)}
-          onChange={(opt) => setTheme(opt.value)}
-          placeholder="Välj ett Tema"
-          classNamePrefix="react-select"
-        />
+      <div className="SettingsMain">
+
+        <div className="GlobalSettings">
+          <h1>{t.globalSettings}</h1>
+
+          <div className="LanguageSelector">
+            <h2>{t.chooseLanguage}</h2>
+            <MySelect
+              options={languageOptions}
+              value={language}
+              onChange={(opt) => setLanguage(opt)}
+              placeholder={t.chooseLanguage}
+            />
+          </div>
+
+          <div className="ThemeSelector">
+            <h2 className="ThemeSelectorLabel">{t.chooseTheme}:</h2>
+            <MySelect
+              options={themeOptions}
+              value={themeOptions.find(opt => opt.value === theme)}
+              onChange={(opt) => setTheme(opt.value)}
+              placeholder={t.chooseTheme}
+            />
+          </div>
+
+          <div className="StationSearchMeny">
+            <h2>{t.chooseStation}:</h2>
+            <MySelect
+              options={stationOptions}
+              value={selectedStation}
+              onChange={setSelectedStation}
+              placeholder={t.chooseStation}
+            />
+          </div>
+
+          <div className='DepArrButtons'>
+            <h2>{t.chooseDisplay}:</h2>
+            <div>
+              <button
+                onClick={() => setArrival(true)}
+                className={`TwinButton ArrButton DefaultButton ${showArrivals ? 'DefaultActiveButton' : ''}`}
+              >
+                {t.Arrival}
+              </button>
+              <button
+                onClick={() => setArrival(false)}
+                className={`TwinButton DepButton DefaultButton ${!showArrivals ? 'DefaultActiveButton' : ''}`}
+              >
+                {t.Departure}
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div className="ThemeSettings">
+          <h1 id='ThemeSettingsID'>{t.themeSettings}</h1>
+        </div>
+
       </div>
-
-      <div className="StationSearchMeny">
-        <label>Selected Station: </label>
-        <Select
-          options={stationOptions}
-          value={selectedStation}
-          onChange={setSelectedStation}
-          placeholder="Välj en Station"
-          classNamePrefix="react-select"
-        />
-      </div>
-
-      <div>
-        <button
-          onClick={setArrivalButton}
-          className={`ArrivalButton ${showArrivals ? 'activeButton' : ''}`}
-        >
-          Ankomst
-        </button>
-        <button
-          onClick={setDepartureButton}
-          className={`DepartureButton ${!showArrivals ? 'activeButton' : ''}`}
-        >
-          Avgång
-        </button>
-
-      </div>
+      <AcquireThemeSettings theme={theme}/>
 
     </div>
   );

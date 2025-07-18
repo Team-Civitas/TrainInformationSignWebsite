@@ -1,11 +1,15 @@
+.NavbarContainer {
+    display: flex;
+    flex-direction: row;
+}
+
 .Navbar {
     opacity: 0;
 
-    position: absolute;
+    position: fixed;
     z-index: 1;
 
     display: flex;
-
 
     justify-content: center;
     align-content: center;
@@ -13,8 +17,7 @@
     width: 100vw;
 
     background-color: #8080805d;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(3px);
     border-bottom: 3px solid #808080;
     transition: opacity 0.25s ease-in-out;
 }
@@ -26,4 +29,8 @@
 .Navbar a p {
     margin: 16px;
     color: var(--primary-fg);
+}
+
+.Navbar a p:hover {
+    color: var(--secondary-fg);
 }

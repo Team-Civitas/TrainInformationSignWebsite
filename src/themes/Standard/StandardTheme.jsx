@@ -5,6 +5,12 @@ import { formatTime } from '../../components/time.jsx';
 import Clock from '../../components/clock.jsx';
 import { AppContext } from '../../AppContext.js';
 
+export function ThemeSettings() {
+    return (
+        <div>Hello, Standard!</div>
+    )
+}
+
 function StandardTheme ({ trainArray }) {
     const { showArrivals } = useContext(AppContext);
     const [infoIndex, setInfoIndex] = useState(0);

@@ -1,0 +1,19 @@
+.DefaultSelect .react-select__control {
+  border-radius: 1em;
+  border: 3px solid var(--default-border);
+
+  width: 25vw;
+  padding: 0.5vh 0;
+  
+  background-color: #fff;
+}
+
+.DefaultSelect .react-select__menu {
+  border-radius: 1em;
+  border: 3px solid var(--default-border);
+  overflow: hidden;
+}
+
+.DefaultSelect .react-select__menu-list {
+  padding-top: 0px;
+}

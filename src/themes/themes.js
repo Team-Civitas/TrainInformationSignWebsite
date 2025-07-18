@@ -1,13 +1,26 @@
-// Automatically Loads all themes
+// Load all theme modules
 const themeModules = import.meta.glob('./**/!(*test).jsx', { eager: true });
 
 const themes = {};
+const themeSettings = {};
 const themeList = [];
 
 for (const path in themeModules) {
-  const name = path.split('/').slice(-2, -1)[0]; // gets folder name aka the theme name
-  themes[name] = themeModules[path].default;
+  const name = path.split('/').slice(-2, -1)[0]; // Get folder name = theme name
+  const module = themeModules[path];
+
+  themes[name] = module.default;
+  if (module.ThemeSettings) {
+    themeSettings[name] = module.ThemeSettings;
+  }
+
   themeList.push(name);
 }
 
-export { themes, themeList };
+themeList.sort((a, b) => {
+  if (a === "Standard") return -1;
+  if (b === "Standard") return 1;
+  return a.localeCompare(b);
+});
+
+export { themes, themeList, themeSettings };

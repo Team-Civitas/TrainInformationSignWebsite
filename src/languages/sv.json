@@ -1,0 +1,20 @@
+{
+    "label": "Svenska",
+    "flag": "https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.0.3/svg/1f1f8-1f1ea.svg",
+
+    "home": "Hem",
+    "settings": "Inställningar",
+    "about": "Om oss",
+
+    "globalSettings": "Globala inställningar",
+    "chooseLanguage": "Välj språk",
+    "chooseLanguageExtended": "(Detta påverkar hela sidan)",
+    "chooseTheme": "Välj tema",
+    "chooseStation": "Välj station",
+    "chooseDisplay": "Välj typ av skärm",
+
+    "Arrival": "Ankomst",
+    "Departure": "Avgång",
+
+    "themeSettings": "Temainställningar"
+}

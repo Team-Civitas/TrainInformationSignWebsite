@@ -1,0 +1,20 @@
+{
+    "label": "Polski",
+    "flag": "https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.0.3/svg/1f1f5-1f1f1.svg",
+
+    "home": "Strona główna",
+    "settings": "Ustawienia",
+    "about": "O nas",
+
+    "globalSettings": "Ustawienia globalne",
+    "chooseLanguage": "Wybierz język",
+    "chooseLanguageExtended": "(To wpływa na całą stronę)",
+    "chooseTheme": "Wybierz motyw",
+    "chooseStation": "Wybierz stację",
+    "chooseDisplay": "Wybierz typ ekranu",
+
+    "Arrival": "Przyjazd",
+    "Departure": "Odjazd",
+    
+    "themeSettings": "Ustawienia motywu"
+}

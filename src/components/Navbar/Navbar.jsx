@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { translations } from '../../languages/languages';
+import { AppContext } from '../../AppContext';
 
-function Navbar() {
+function Navbar({ className, style }) {
+  const { language } = useContext(AppContext)
+  const t = translations[language.value]
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [hideTimeout, setHideTimeout] = useState(null);
@@ -38,10 +42,13 @@ function Navbar() {
     };
   }, [hideTimeout]);
 
-
   return (
-    <div className={`Navbar ${menuVisible ? 'active' : ''}`}>
-      <Link to="/Settings"><p>Settings</p></Link>
+    <div className="NavbarContainer">
+      <div className={`Navbar ${menuVisible ? 'active' : ''} ${className}`} style={style} >
+        <Link to="/"><p>{t.home}</p></Link>
+        <Link to="/Settings"><p>{t.settings}</p></Link>
+        <Link to="/About"><p>{t.about}</p></Link>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,20 @@
+{
+    "label": "English",
+    "flag": "https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.0.3/svg/1f1ec-1f1e7.svg",
+
+    "home": "Home",
+    "settings": "Settings",
+    "about": "About us",
+
+    "globalSettings": "Global Settings",
+    "chooseLanguage": "Choose language",
+    "chooseLanguageExtended": "(This affects the whole site)",
+    "chooseTheme": "Choose theme",
+    "chooseStation": "Choose station",
+    "chooseDisplay": "Choose type of display",
+
+    "Arrival": "Arrival",
+    "Departure": "Departure",
+
+    "themeSettings": "Theme Settings"
+}

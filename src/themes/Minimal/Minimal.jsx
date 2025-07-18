@@ -1,8 +1,14 @@
-import './Simple.css';
+import './Minimal.css';
 import { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 import { stationSignatureToName } from '../../components/APIFunctions';
 import { formatTime } from '../../components/time';
+
+export function ThemeSettings() {
+    return (
+        <div>Hello, Minimal!</div>
+    )
+}
 
 function Simple({ trainArray }) {
   const { showArrivals } = useContext(AppContext);

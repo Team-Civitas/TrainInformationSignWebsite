@@ -1,5 +1,11 @@
 import './sl.css';
 
+export function ThemeSettings() {
+    return (
+        <div>Hello, SL!</div>
+    )
+}
+
 function ThemeSL() {
     return (
         <div className="ThemeSL">

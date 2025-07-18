@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../AppContext';
-import AcquireTheme from '../../components/AcquireTheme.jsx';
+import { AcquireTheme } from '../../components/AcquireTheme.jsx';
 import Navbar from '../../components/Navbar/Navbar.jsx';
 
 function App() {
