@@ -3,23 +3,38 @@ import { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 import { stationSignatureToName } from '../../components/APIFunctions';
 import { formatTime } from '../../components/time';
+import { translations } from './translations/translations';
+import usePersistentState from '../../components/usePersistentState';
+
+const MinimalThemeDefaults = {
+  "minimalThemeTrainAmount": 3
+}
 
 export function ThemeSettings() {
-    return (
-        <div>Hello, Minimal!</div>
-    )
+  const [trainAmount, setTrainAmount] = usePersistentState("minimalThemeTrainAmount", MinimalThemeDefaults)
+
+  return (
+    <div className='MinimalThemeSettings'>
+      <input type="number" min="0" max="10" value={trainAmount} onChange={e => setTrainAmount(e.target.value)}/>
+    </div>
+  )
 }
 
 function Simple({ trainArray }) {
-  const { showArrivals } = useContext(AppContext);
+  const { showArrivals, language } = useContext(AppContext);
+  const [trainAmount] = usePersistentState("minimalThemeTrainAmount", MinimalThemeDefaults);
 
-  const activityTypeToMatch = !showArrivals ? 'Ankomst' : 'Avgang';
+  console.log(trainAmount)
+
+  const t = translations[language.value]
+
+  const activityTypeToMatch = showArrivals ? 'Ankomst' : 'Avgang';
   const nextTrain = trainArray.find(train => train.ActivityType === activityTypeToMatch);
 
   if (!nextTrain) {
     return (
       <div className="NoTrain">
-        {!showArrivals ? 'Inga kommande ankomster' : 'Inga kommande avgångar'}
+        {!showArrivals ? t.noArrivals : t.noDepartures}
       </div>
     );
   }
@@ -39,7 +54,7 @@ function Simple({ trainArray }) {
           <div>
             {toLocationArray[0]
               ? stationSignatureToName(toLocationArray[0])
-              : 'Okänd destination'}
+              : t.destinationUnknown}
           </div>
         </div>
         <div>{toLocationString}</div>
