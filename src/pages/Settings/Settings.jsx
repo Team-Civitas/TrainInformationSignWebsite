@@ -27,7 +27,7 @@ function Settings() {
 
   return (
     <div>
-      <Navbar className="active" />
+      <Navbar className="constant" />
 
       <div className="SettingsMain">
 

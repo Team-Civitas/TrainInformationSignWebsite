@@ -24,6 +24,10 @@
 
 .Navbar.active {
     opacity: 1;
+}
+
+.Navbar.constant {
+    opacity: 1;
     position: relative;
 }
 
