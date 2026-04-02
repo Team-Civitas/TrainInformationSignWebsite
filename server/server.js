@@ -75,7 +75,7 @@ app.post('/api/train-data/:stationSignature', async (req, res) => {
             <OR>
               <AND>
                 <GT name="AdvertisedTimeAtLocation" value="$now" />
-                <LT name="AdvertisedTimeAtLocation" value="$dateadd(14:00:00)" />
+                <LT name="AdvertisedTimeAtLocation" value="$dateadd(6:00:00)" />
               </AND>
               <GT name="EstimatedTimeAtLocation" value="$now" />
             </OR>
