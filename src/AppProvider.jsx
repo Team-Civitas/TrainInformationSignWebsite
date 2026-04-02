@@ -26,6 +26,8 @@ export function AppProvider({ children }) {
   useEffect(() => {
     async function reloadStation() {
       try {
+        setTrainArray([]);
+
         const stationsData = await fetchStations();
         setStationList(stationsData);
 

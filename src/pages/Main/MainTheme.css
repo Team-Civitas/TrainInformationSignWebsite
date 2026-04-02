@@ -1,0 +1,7 @@
+.NoData {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}

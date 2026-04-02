@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
+import './MainTheme.css';
+import { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 import { AcquireTheme } from '../../components/AcquireTheme.jsx';
 import Navbar from '../../components/Navbar/Navbar.jsx';
@@ -15,6 +16,10 @@ function App() {
           trainArray={trainArray}
           SLTrainArray={SLTrainArray}
         />
+      )}
+
+      {trainArray.length == 0 && (
+        <p className='NoData'>Getting train data, please wait</p>
       )}
     </div>
   );
