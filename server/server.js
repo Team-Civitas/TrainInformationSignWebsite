@@ -105,7 +105,7 @@ app.post('/api/train-announcements', async (req, res) => {
   try {
     const requestBody = `<REQUEST>
       <LOGIN authenticationkey="${process.env.API_KEY}"/>
-      <QUERY objecttype="TrainAnnouncement" schemaversion="1.9" limit="99999999">
+      <QUERY objecttype="TrainAnnouncement" namespace="rail.trafficinfo" schemaversion="2.0" limit="99999999">
         <FILTER>
           <EQ name="Deleted" value="false" />
         </FILTER>
